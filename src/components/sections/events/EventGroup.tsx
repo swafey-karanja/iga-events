@@ -1,6 +1,6 @@
 import EventCard from "@/src/components/sections/events/EventCard";
+import EventCarousel from "@/src/components/sections/events/EventCarousel";
 import type { EventListing } from "@/src/lib/data/event-listings";
-import { getMosaicSpanClass } from "@/src/lib/utils/mosaic";
 
 type EventGroupProps = {
   title: string;
@@ -17,22 +17,16 @@ export default function EventGroup({
 
   return (
     <div className={className}>
-      <div className="flex items-baseline justify-between gap-4 border-t-2 border-primary pt-4">
-        <h3 className="font-heading text-2xl font-semibold text-primary lg:text-3xl">
-          {title}
-        </h3>
-        <span className="text-sm text-black/70">
-          {events.length} {events.length === 1 ? "event" : "events"}
-        </span>
-      </div>
-
-      <ul className="mt-6 grid auto-rows-[15rem] grid-cols-1 gap-0.5 sm:grid-cols-2 lg:auto-rows-[16rem] lg:grid-cols-4">
-        {events.map((event, i) => (
-          <li key={event.id} className={getMosaicSpanClass(i, events.length)}>
+      <EventCarousel title={title} count={events.length}>
+        {events.map((event) => (
+          <li
+            key={event.id}
+            className="shrink-0 basis-full snap-start sm:basis-[calc((100%_-_1rem)/2)] lg:basis-[calc((100%_-_3rem)/4)]"
+          >
             <EventCard event={event} />
           </li>
         ))}
-      </ul>
+      </EventCarousel>
     </div>
   );
 }

@@ -3,6 +3,9 @@
 @theme inline {
   --color-primary: #006239;
   --color-secondary: #109f5d;
+  --color-tertiary: #bed530;
+  --color-black: #000000;
+  --color-back: #d8e6b1;
   --color-cream: #f3f1ea;
   --font-heading: var(--font-poppins), sans-serif;
   --font-body: var(--font-open-sans), sans-serif;
@@ -25,7 +28,14 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* fixed header height on mobile */
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 8rem; /* two-row header: 5rem + 3rem */
+    }
   }
 }
 

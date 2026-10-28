@@ -24,7 +24,8 @@ function placeholder(n: number, status: EventStatus): EventListing {
     name: `[Event name ${n}]`,
     date: "[Date to be confirmed]",
     location: "[City, Country]",
-    image: PLACEHOLDER_IMAGE,
+    image:
+      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     imageAlt: "[Event photo description]",
     href: "#events", // TODO: event page route
     websiteUrl: "https://example.com", // TODO: real event website

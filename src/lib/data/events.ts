@@ -18,15 +18,17 @@ const PLACEHOLDER_EVENTS: HeroEvent[] = [
     id: "event-1",
     badge: "Sample event",
     featured: true,
-    title: "The Next Industry Forum",
-    tagline: "Where industries meet. What’s next begins.",
+    title: "iGaming AFRIKA Summit 2027",
+    tagline: "Africa's largest gaming show",
     description:
-      "An editorial concept for a cross-industry gathering of ideas, meaningful connections and conversations that move business forward.",
+      "After a groundbreaking inaugural event, iGaming AFRIKA Summit 2027 continues its journey as Africa’s gateway to global gaming business, innovation, and investment.\n" +
+      "\n" +
+      "Where else to gather the industry’s gaming operators, regulators, service providers and investors, apart from Nairobi? Let’s connect and make business at the Heart of Gaming in Africa!",
     href: "https://igasummit.com/",
-    date: "[Date to be confirmed]",
-    venue: "[Venue to be confirmed]",
-    city: "[City to be confirmed]",
-    country: "[Country to be confirmed]",
+    date: "4 - 6 May 2027",
+    venue: "Sarit Expo Centre",
+    city: "Nairobi",
+    country: "Kenya",
   },
   {
     id: "event-2",

@@ -13,7 +13,7 @@ export default async function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[calc(100svh-15rem)] flex-col overflow-hidden bg-primary text-white"
+      className="relative isolate flex min-h-svh flex-col overflow-hidden bg-primary text-white"
     >
       {/* Poster is the LCP image and the fallback for reduced motion */}
       <Image
@@ -38,7 +38,7 @@ export default async function Hero() {
       </video>
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-r from-primary/85 via-primary/65 to-primary/30"
+        className="absolute inset-0 -z-10 bg-linear-to-b from-black/60 via-black/80 to-black/70"
       />
 
       <HeroCarousel events={events} />

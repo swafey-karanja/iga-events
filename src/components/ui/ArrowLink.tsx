@@ -12,7 +12,7 @@ type ArrowLinkProps = {
 
 const variants = {
   primary:
-    "bg-primary text-white hover:bg-[#004d2c] focus-visible:outline-primary",
+    "bg-secondary text-white hover:bg-[#004d2c] focus-visible:outline-primary",
   secondary:
     "bg-secondary text-white rounded-3xl hover:bg-[#0e8a50] focus-visible:outline-white",
 };

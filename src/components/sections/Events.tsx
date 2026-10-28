@@ -11,9 +11,9 @@ export default async function Events() {
     <section
       id="events"
       aria-labelledby="events-heading"
-      className="bg-cream py-16 lg:py-24"
+      className="bg-back py-16"
     >
-      <div className="mx-auto max-w-10/12">
+      <div className="mx-auto w-full max-w-10/12">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">

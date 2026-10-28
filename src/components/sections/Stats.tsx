@@ -8,7 +8,7 @@ export default async function Stats() {
     <section
       id="stats"
       aria-labelledby="stats-heading"
-      className="bg-primary py-16 text-white lg:py-24"
+      className="bg-black/85 py-16 text-white lg:py-24"
     >
       <div className="mx-auto max-w-10/12">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
@@ -23,7 +23,7 @@ export default async function Stats() {
           the experience.
         </h2>
 
-        <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:mt-20 lg:grid-cols-3 lg:gap-y-16">
+        <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 lg:mt-20 lg:grid-cols-6 lg:gap-y-16">
           {stats.map(({ id, label, value }) => (
             <div key={id} className="flex flex-col-reverse justify-end gap-4">
               <dt className="text-sm">{label}</dt>
