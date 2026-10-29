@@ -8,7 +8,7 @@ export default async function Stats() {
     <section
       id="stats"
       aria-labelledby="stats-heading"
-      className="bg-black/85 py-16 text-white lg:py-24"
+      className="bg-black/95 py-16 text-white"
     >
       <div className="mx-auto max-w-10/12">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">

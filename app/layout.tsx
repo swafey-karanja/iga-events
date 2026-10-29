@@ -2,6 +2,7 @@ import { Open_Sans, Poppins } from "next/font/google";
 import Navbar from "@/src/components/layout/Navbar";
 import "./globals.css";
 import { Metadata } from "next";
+import Footer from "@/src/components/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="bg-cream text-black antialiased">
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import Stats from "@/src/components/sections/Stats";
 import Capabilities from "@/src/components/sections/Capablities";
 import About from "@/src/components/sections/About";
 import News from "@/src/components/sections/News";
+import CompanyProfile from "@/src/components/sections/CompanyProfile";
 
 export default function HomePage() {
   return (
@@ -12,8 +13,9 @@ export default function HomePage() {
       <Events />
       <Stats />
       <Capabilities />
-      <About />
       <News />
+      <About />
+      <CompanyProfile />
     </>
   );
 }

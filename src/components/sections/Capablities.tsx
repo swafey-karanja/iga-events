@@ -54,7 +54,7 @@ export default function Capabilities() {
         <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_22rem] lg:items-end lg:gap-16">
           <h2
             id="capabilities-heading"
-            className="font-heading text-4xl font-medium leading-tight tracking-tight sm:text-5xl lg:text-6xl"
+            className="mt-3 text-4xl font-medium tracking-tight lg:text-7xl"
           >
             <span className="block">Every detail.</span>
             <span className="block">One connected vision.</span>
@@ -67,17 +67,17 @@ export default function Capabilities() {
               connected.
             </p>
             {/* TODO: point to the capabilities page once it exists */}
-            <Link
-              href="/capabilities"
-              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-            >
-              Explore our capabilities
-              <ArrowOutwardIcon
-                fontSize="inherit"
-                aria-hidden
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-              />
-            </Link>
+            {/*<Link*/}
+            {/*  href="/capabilities"*/}
+            {/*  className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"*/}
+            {/*>*/}
+            {/*  Explore our capabilities*/}
+            {/*  <ArrowOutwardIcon*/}
+            {/*    fontSize="inherit"*/}
+            {/*    aria-hidden*/}
+            {/*    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"*/}
+            {/*  />*/}
+            {/*</Link>*/}
           </div>
         </div>
 

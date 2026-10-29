@@ -8,11 +8,7 @@ export default async function Events() {
   const past = events.filter((e) => e.status === "past");
 
   return (
-    <section
-      id="events"
-      aria-labelledby="events-heading"
-      className="bg-back py-16"
-    >
+    <section id="events" aria-labelledby="events-heading" className=" py-16">
       <div className="mx-auto w-full max-w-10/12">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
