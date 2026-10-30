@@ -18,12 +18,12 @@ export default function EventGroup({
   return (
     <div className={className}>
       <EventCarousel title={title} count={events.length}>
-        {events.map((event) => (
+        {events.map((event, i) => (
           <li
             key={event.id}
             className="shrink-0 basis-full snap-start sm:basis-[calc((100%_-_1rem)/2)] lg:basis-[calc((100%_-_3rem)/4)]"
           >
-            <EventCard event={event} />
+            <EventCard event={event} index={i} />
           </li>
         ))}
       </EventCarousel>

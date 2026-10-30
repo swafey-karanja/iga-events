@@ -10,7 +10,7 @@ export default async function Stats() {
       aria-labelledby="stats-heading"
       className="bg-black/95 py-16 text-white"
     >
-      <div className="mx-auto max-w-10/12">
+      <div className="mx-auto max-w-9/12">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
           <span aria-hidden className="size-1.5 bg-secondary" />A broader
           perspective

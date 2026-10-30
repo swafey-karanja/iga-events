@@ -11,7 +11,7 @@ export default function CompanyProfile() {
       aria-labelledby="company-profile-heading"
       className="bg-cream py-16"
     >
-      <div className="mx-auto w-full max-w-10/12 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto w-full max-w-9/12 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
             <span aria-hidden className="size-1.5 bg-primary" />

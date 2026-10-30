@@ -3,6 +3,7 @@ import Navbar from "@/src/components/layout/Navbar";
 import "./globals.css";
 import { Metadata } from "next";
 import Footer from "@/src/components/layout/Footer";
+import SocialSidebar from "@/src/components/layout/SocialSidebar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
       <body className="bg-cream text-black antialiased">
         <Navbar />
+        <SocialSidebar />
         <main>{children}</main>
         <Footer />
       </body>
