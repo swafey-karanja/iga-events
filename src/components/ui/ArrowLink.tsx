@@ -28,7 +28,7 @@ export default function ArrowLink({
     <Link
       href={href}
       onClick={onClick}
-      className={`group inline-flex items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`group items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
     >
       {children}
       <ArrowOutwardIcon

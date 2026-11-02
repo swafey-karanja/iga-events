@@ -1,9 +1,6 @@
-import Image from "next/image";
 import ArrowLink from "@/src/components/ui/ArrowLink";
 import EventGroup from "@/src/components/sections/events/EventGroup";
 import { getEventListings } from "@/src/lib/data/event-listings";
-
-const BG_IMAGE_SRC = "/events-bg.jpg";
 
 export default async function Events() {
   const events = await getEventListings();
@@ -14,7 +11,7 @@ export default async function Events() {
     <section
       id="events"
       aria-labelledby="events-heading"
-      className="relative isolate bg-white py-16 text-primary [clip-path:inset(0)] lg:py-24"
+      className="relative isolate bg-white py-16 text-primary [clip-path:inset(0)]"
     >
       {/* Parallax background: the fixed image is clipped to this section */}
       {/*<div aria-hidden className="absolute inset-0 -z-10">*/}
@@ -30,8 +27,8 @@ export default async function Events() {
       {/*  <div className="absolute inset-0 bg-black/60" />*/}
       {/*</div>*/}
 
-      <div className="mx-auto w-full max-w-10/12">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      <div className="mx-auto w-full px-4 sm:px-6 xl:max-w-9/12 xl:px-0">
+        <div className="flex flex-wrap items-end justify-between gap-2 lg:gap-6">
           <div>
             <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
               <span aria-hidden className="size-1.5 bg-secondary" />
@@ -39,26 +36,26 @@ export default async function Events() {
             </p>
             <h2
               id="events-heading"
-              className="mt-3 font-heading text-4xl font-semibold tracking-tight lg:text-5xl"
+              className="mt-3 text-3xl font-medium tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               Our events
             </h2>
           </div>
           {/* TODO: point to the all-events page once it exists */}
-          <ArrowLink href="/events" variant="secondary">
-            View all events
-          </ArrowLink>
+          {/*<ArrowLink href="/events" variant="secondary">*/}
+          {/*  View all events*/}
+          {/*</ArrowLink>*/}
         </div>
 
         <EventGroup
           title="Upcoming events"
           events={upcoming}
-          className="mt-12"
+          className="mt-6 lg:mt-12"
         />
         <EventGroup
           title="Past events"
           events={past}
-          className="mt-16 lg:mt-24"
+          className="mt-6 lg:mt-12"
         />
       </div>
     </section>

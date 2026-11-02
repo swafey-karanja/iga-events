@@ -87,7 +87,7 @@ export default function HeroCarousel({ events }: { events: HeroEvent[] }) {
           type="button"
           onClick={toggle}
           aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
-          className="grid size-8 place-items-center focus-visible:outline-2 focus-visible:outline-white"
+          className="grid size-10 place-items-center focus-visible:outline-2 focus-visible:outline-white"
         >
           {isPlaying ? (
             <PauseIcon fontSize="small" aria-hidden />
@@ -102,13 +102,13 @@ export default function HeroCarousel({ events }: { events: HeroEvent[] }) {
             onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === index}
-            className="group p-2 focus-visible:outline-2 focus-visible:outline-white"
+            className="group px-1 py-4 focus-visible:outline-2 focus-visible:outline-white"
           >
             <span
               className={`block h-1 transition-all duration-300 motion-reduce:transition-none ${
                 i === index
-                  ? "w-250 bg-secondary"
-                  : "w-80 bg-white/60 group-hover:bg-white"
+                  ? "w-24 lg:w-120 bg-secondary"
+                  : "w-12 bg-white/60 group-hover:bg-white"
               }`}
             />
           </button>

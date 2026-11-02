@@ -7,12 +7,12 @@ export type Stat = {
 
 // PLACEHOLDERS: add `value` to each stat once figures are verified
 const PLACEHOLDER_STATS: Stat[] = [
-  { id: "events", label: "Events organised" },
-  { id: "clients", label: "Clients served" },
-  { id: "delegates", label: "Delegates reached" },
-  { id: "exhibitors", label: "Exhibitors / sponsors" },
-  { id: "countries", label: "Countries hosted" },
-  { id: "industries", label: "Industries served" },
+  { id: "events", label: "Events organised", value: "35" },
+  { id: "clients", label: "Clients served", value: "15" },
+  { id: "delegates", label: "Delegates reached", value: "10,000+" },
+  { id: "exhibitors", label: "Exhibitors / sponsors", value: "350+" },
+  { id: "countries", label: "Countries hosted", value: "13" },
+  { id: "industries", label: "Industries served", value: "50+" },
 ];
 
 export async function getStats(): Promise<Stat[]> {

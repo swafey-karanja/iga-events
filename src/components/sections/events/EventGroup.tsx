@@ -21,7 +21,7 @@ export default function EventGroup({
         {events.map((event, i) => (
           <li
             key={event.id}
-            className="shrink-0 basis-full snap-start sm:basis-[calc((100%_-_1rem)/2)] lg:basis-[calc((100%_-_3rem)/4)]"
+            className="shrink-0 basis-full snap-start sm:basis-[calc((100%_-_1rem)/2)] lg:basis-[calc((100%_-_2rem)/3)] 2xl:basis-[calc((100%_-_3rem)/4)]"
           >
             <EventCard event={event} index={i} />
           </li>

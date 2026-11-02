@@ -28,7 +28,7 @@ export default function About() {
         />
       </div>
 
-      <div className="mx-auto w-full max-w-10/12 flex min-h-96 flex-col justify-center py-16 lg:py-24">
+      <div className="mx-auto w-full max-w-10/12 flex min-h-96 flex-col justify-center py-16">
         <div className="max-w-4xl">
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
             <span aria-hidden className="size-1.5 bg-secondary" />
@@ -46,7 +46,7 @@ export default function About() {
           <h3 className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/80">
             Provisional company introduction
           </h3>
-          <p className="mt-3 text-lg font-medium leading-snug max-w-3xl">
+          <p className="mt-3 text-md font-medium leading-snug max-w-3xl">
             We bring people, industries and ideas together through conferences,
             summits and exhibitions. Our approach connects strategic thinking
             with creative production and thoughtful delivery, wherever the
@@ -56,7 +56,7 @@ export default function About() {
           <h3 className="mt-8 text-xs font-semibold uppercase tracking-wide text-white/80">
             Our mission
           </h3>
-          <p className="mt-3 text-lg font-medium leading-snug max-w-3xl">
+          <p className="mt-3 text-md font-medium leading-snug max-w-3xl">
             To create the conditions for meaningful connection — across
             industries, places and perspectives.
           </p>

@@ -11,7 +11,7 @@ export default function CompanyProfile() {
       aria-labelledby="company-profile-heading"
       className="bg-cream py-16"
     >
-      <div className="mx-auto w-full max-w-9/12 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid w-full items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 xl:max-w-9/12 xl:px-0">
         <div>
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
             <span aria-hidden className="size-1.5 bg-primary" />
@@ -19,11 +19,11 @@ export default function CompanyProfile() {
           </p>
           <h2
             id="company-profile-heading"
-            className="mt-3 text-4xl font-medium tracking-tight text-primary lg:text-7xl"
+            className="mt-3 text-4xl font-medium tracking-tight text-primary sm:text-5xl lg:text-6xl xl:text-7xl"
           >
             <span className="block">The bigger picture.</span>
           </h2>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-black/70">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/70 sm:mt-8">
             An introduction to our approach, capabilities and event formats — in
             one considered document. Designed for clients, sponsors, exhibitors
             and partners.
@@ -32,7 +32,7 @@ export default function CompanyProfile() {
           <a
             href={PROFILE_PDF_SRC}
             download
-            className="group mt-8 inline-flex items-center justify-between gap-10 bg-secondary px-6 py-4 font-heading text-sm font-medium text-white transition-colors duration-200 hover:bg-[#004d2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none"
+            className="group mt-8 inline-flex w-full items-center justify-between gap-10 bg-secondary px-6 py-4 font-heading text-sm font-medium text-white transition-colors duration-200 hover:bg-[#004d2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto motion-reduce:transition-none"
           >
             Download company profile
             <span className="sr-only">(PDF)</span>
@@ -50,28 +50,30 @@ export default function CompanyProfile() {
           </p>
         </div>
 
-        {/* Decorative preview of the document cover */}
+        {/* Decorative preview of the document cover. Everything inside scales with the cover's own width (cqw). */}
         <div
           aria-hidden
-          className="grid place-items-center bg-[#e8e8e1] p-10 sm:p-16 lg:p-14"
+          className="grid place-items-center bg-[#e8e8e1] p-6 sm:p-12 lg:p-14"
         >
-          <div className="flex itesm-center justify-center aspect-[3/4] w-3/5 max-w-85 flex-col bg-primary p-[8%] text-white">
-            <p className="flex items-center gap-1.5 font-heading text-[clamp(1rem,2.2vw,1.5rem)] font-semibold tracking-tight">
-              convene
-              <span className="mt-1.5 size-1.5 bg-secondary" />
-            </p>
-            <NorthEastIcon
-              className="mt-[12%] text-secondary"
-              sx={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
-            />
-            <p className="mt-auto font-heading text-[clamp(1.5rem,3.6vw,2.5rem)] leading-tight">
-              Company profile
-            </p>
-            <p className="mt-[12%] text-[0.625rem] uppercase leading-snug">
-              Placeholder document
-              <br />
-              <span className="normal-case">Approved PDF to be supplied</span>
-            </p>
+          <div className="@container w-3/4 max-w-85 sm:w-3/5">
+            <div className="flex aspect-[3/4] flex-col bg-primary p-[8%] text-white">
+              <p className="flex items-center gap-[1.5cqw] font-heading text-[9cqw] font-semibold tracking-tight">
+                convene
+                <span className="mt-[2cqw] size-[2cqw] bg-secondary" />
+              </p>
+              <NorthEastIcon
+                className="mt-[12%] text-secondary"
+                sx={{ fontSize: "16cqw" }}
+              />
+              <p className="mt-auto font-heading text-[14cqw] leading-tight">
+                Company profile
+              </p>
+              <p className="mt-[12%] text-[max(0.5625rem,3.7cqw)] uppercase leading-snug">
+                Placeholder document
+                <br />
+                <span className="normal-case">Approved PDF to be supplied</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

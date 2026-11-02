@@ -29,12 +29,18 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem; /* fixed header height on mobile */
+    scroll-padding-top: 4rem; /* header height on mobile */
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     html {
-      scroll-padding-top: 8rem; /* two-row header: 5rem + 3rem */
+      scroll-padding-top: 5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      scroll-padding-top: 6.25rem; /* h-25 */
     }
   }
 }

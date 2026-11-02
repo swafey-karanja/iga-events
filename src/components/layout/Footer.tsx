@@ -48,7 +48,7 @@ export default function Footer() {
 
         <nav aria-label="Footer">
           <h2 className={headingClass}>Explore</h2>
-          <ul className="mt-6 flex flex-col gap-4">
+          <ul className="mt-6 flex flex-col gap-2">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={href}>
                 <Link

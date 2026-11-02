@@ -17,7 +17,7 @@ type EventCarouselProps = {
 };
 
 const buttonClass =
-  "grid size-10 place-items-center border border-secondary text-black transition-colors hover:bg-secondary hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:pointer-events-none disabled:opacity-30 motion-reduce:transition-none";
+  "grid size-11 place-items-center border border-secondary text-black transition-colors hover:bg-secondary hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-30 sm:size-10 motion-reduce:transition-none";
 
 export default function EventCarousel({
   title,
@@ -55,27 +55,30 @@ export default function EventCarousel({
     el?.scrollBy({ left: direction * el.clientWidth });
   };
 
+  // Hide the arrows when every card already fits on screen
+  const canScroll = !(edges.start && edges.end);
+
   return (
     <div role="region" aria-roledescription="carousel" aria-label={title}>
-      <div className="gap-4">
-        <div className="flex justify-center items-center gap-x-4">
-          <h3 className="font-heading text-2xl font-semibold text-primary lg:text-3xl">
-            {title}
-          </h3>
-          <span className="text-sm text-black/70">
-            {count} {count === 1 ? "event" : "events"}
-          </span>
-        </div>
+      <div className="flex flex-wrap items-baseline justify-start gap-x-4 gap-y-1 md:justify-center">
+        <h3 className="font-heading text-xl font-semibold text-primary sm:text-2xl lg:text-3xl">
+          {title}
+        </h3>
+        <span className="text-sm text-black/70">
+          {count} {count === 1 ? "event" : "events"}
+        </span>
       </div>
 
       <ul
         ref={trackRef}
-        className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth [scrollbar-width:none] motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
+        className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
       >
         {children}
       </ul>
 
-      <div className="flex gap-2 justify-end pt-8">
+      <div
+        className={`justify-end gap-2 pt-6 sm:pt-8 ${canScroll ? "flex" : "hidden"}`}
+      >
         <button
           type="button"
           onClick={() => scrollPage(-1)}

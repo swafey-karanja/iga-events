@@ -22,7 +22,8 @@ const PLACEHOLDER_ARTICLES: NewsArticle[] = [
     title: "Designing the moments between the sessions",
     excerpt:
       "A sample perspective on how thoughtful spaces and informal conversations can shape an event experience.",
-    image: PLACEHOLDER_IMAGE,
+    image:
+      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     imageAlt: "[Article image description]",
     href: "#news", // TODO: article route
     isSample: true,
@@ -33,7 +34,8 @@ const PLACEHOLDER_ARTICLES: NewsArticle[] = [
     title: "The exhibition floor as a place for discovery",
     excerpt:
       "A sample exploration of spaces that help exhibitors, visitors and ideas find each other.",
-    image: PLACEHOLDER_IMAGE,
+    image:
+      "https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     imageAlt: "[Article image description]",
     href: "#news",
     isSample: true,
@@ -44,7 +46,20 @@ const PLACEHOLDER_ARTICLES: NewsArticle[] = [
     title: "Every memorable event begins with a clear purpose",
     excerpt:
       "A sample look at the questions worth asking before the first agenda takes shape.",
-    image: PLACEHOLDER_IMAGE,
+    image:
+      "https://plus.unsplash.com/premium_photo-1726880601788-187bde243b0a?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+    imageAlt: "[Article image description]",
+    href: "#news",
+    isSample: true,
+  },
+  {
+    id: "article-4",
+    category: "Strategy & perspective",
+    title: "Every memorable event begins with a clear purpose",
+    excerpt:
+      "A sample look at the questions worth asking before the first agenda takes shape.",
+    image:
+      "https://images.unsplash.com/photo-1523379882969-04477e5c1e90?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     imageAlt: "[Article image description]",
     href: "#news",
     isSample: true,

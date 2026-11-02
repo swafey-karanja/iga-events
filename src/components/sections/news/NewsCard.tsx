@@ -29,7 +29,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
           src={image}
           alt={imageAlt}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1536px) 22vw, (min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
         {isSample && (
@@ -51,7 +51,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
           )}
         </p>
 
-        <h3 className="mt-4 font-heading text-xl font-semibold leading-snug text-black lg:text-2xl">
+        <h3 className="mt-4 text-balance break-words font-heading text-lg font-semibold leading-snug text-black sm:text-xl">
           <Link
             href={href}
             className="after:absolute after:inset-0 focus-visible:outline-none"
