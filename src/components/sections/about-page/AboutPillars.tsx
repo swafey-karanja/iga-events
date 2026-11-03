@@ -24,17 +24,17 @@ export default function AboutPillars() {
               Every detail. One connected vision.
             </h2>
           </div>
-          <Link
-            href="/#capabilities"
-            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-          >
-            Explore our capabilities
-            <ArrowOutwardIcon
-              fontSize="inherit"
-              aria-hidden
-              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-            />
-          </Link>
+          {/*<Link*/}
+          {/*  href="/#capabilities"*/}
+          {/*  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"*/}
+          {/*>*/}
+          {/*  Explore our capabilities*/}
+          {/*  <ArrowOutwardIcon*/}
+          {/*    fontSize="inherit"*/}
+          {/*    aria-hidden*/}
+          {/*    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"*/}
+          {/*  />*/}
+          {/*</Link>*/}
         </div>
 
         <ul className="mt-10 grid gap-10 sm:mt-12 md:grid-cols-3 md:gap-8">
