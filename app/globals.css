@@ -23,27 +23,27 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* sticky header height, so anchors don't hide headings */
+  /*scroll-padding-top: 5rem; !* sticky header height, so anchors don't hide headings *!*/
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 4rem; /* header height on mobile */
-  }
+/*@media (prefers-reduced-motion: reduce) {*/
+/*  html {*/
+/*    scroll-behavior: smooth;*/
+/*    scroll-padding-top: 4rem; !* header height on mobile *!*/
+/*  }*/
 
-  @media (min-width: 640px) {
-    html {
-      scroll-padding-top: 5rem;
-    }
-  }
+  /*@media (min-width: 640px) {*/
+  /*  html {*/
+  /*    scroll-padding-top: 5rem;*/
+  /*  }*/
+  /*}*/
 
-  @media (min-width: 1280px) {
-    html {
-      scroll-padding-top: 6.25rem; /* h-25 */
-    }
-  }
-}
+  /*@media (min-width: 1280px) {*/
+  /*  html {*/
+  /*    scroll-padding-top: 6.25rem; !* h-25 *!*/
+  /*  }*/
+  /*}*/
+/*}*/
 
 body {
   font-family: var(--font-body);

@@ -1,12 +1,22 @@
 import Link from "next/link";
 import { CONTENT } from "@/src/lib/constants/layout";
+import Image from "next/image";
 
 export default function CareersHero() {
   return (
-    <section
-      aria-labelledby="careers-heading"
-      className="bg-primary text-white"
-    >
+    <section aria-labelledby="careers-heading" className=" text-white">
+      <Image
+        src="https://plus.unsplash.com/premium_photo-1661771773771-a093c948ba92?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-20 object-cover object-center"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-linear-to-b from-black/70 via-primary/70 to-primary/90"
+      />
       <div
         className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-44`}
       >

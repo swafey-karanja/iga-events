@@ -10,8 +10,8 @@ import { useScrolled } from "@/src/hooks/useScrolled";
 import { NAV_LINKS } from "@/src/lib/constants/navigation";
 import type { EventListing } from "@/src/lib/data/event-listings";
 
-const ACTIVE_HREF = "#home"; // TODO: replace with scroll-spy once more sections exist
-const EVENTS_HREF = "#events"; // the nav item that gets the dropdown
+const ACTIVE_HREF = "/"; // TODO: replace with scroll-spy once more sections exist
+const EVENTS_HREF = "#"; // the nav item that gets the dropdown
 
 // Side gutters below xl, your 10/12 width from xl up
 const GUTTER = "mx-auto w-full px-4 sm:px-6 xl:max-w-10/12 xl:px-0";
@@ -101,7 +101,7 @@ export default function Navbar({ events }: { events: NavEvent[] }) {
         className={`${GUTTER} flex h-16 items-center justify-between gap-6 sm:h-20 xl:h-25`}
       >
         <Link
-          href="#home"
+          href="/"
           aria-label="Convene home"
           className="flex items-center gap-1.5 font-heading text-2xl font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-3xl"
         >
@@ -158,7 +158,7 @@ export default function Navbar({ events }: { events: NavEvent[] }) {
         </nav>
 
         <ArrowLink
-          href="#contact"
+          href="/contact"
           variant="secondary"
           className="hidden xl:inline-flex"
         >
@@ -226,7 +226,7 @@ export default function Navbar({ events }: { events: NavEvent[] }) {
           )}
           <li className="pb-2 pt-4">
             <ArrowLink
-              href="#contact"
+              href="/contact"
               variant="secondary"
               className="w-full sm:w-auto"
               onClick={() => setOpen(false)}
