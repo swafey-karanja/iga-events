@@ -20,14 +20,16 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-10/12 grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1fr] lg:py-16">
         <div>
           <Link
-            href="#home"
+            href="/"
             aria-label="Convene home"
             className={`inline-flex items-center gap-1.5 font-heading text-4xl font-semibold tracking-tight lg:text-5xl ${focusClass}`}
           >
             convene
             <span aria-hidden className="mt-4 size-2.5 bg-secondary" />
           </Link>
-          <p className="mt-8 max-w-56 text-lg leading-snug">{SITE.tagline}</p>
+          <p className="mt-8 max-w-120 md:max-w-56 text-lg leading-snug">
+            {SITE.tagline}
+          </p>
           <a
             href={SITE.profilePdf}
             download

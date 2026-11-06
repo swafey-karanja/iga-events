@@ -5,7 +5,7 @@ export default function AboutTestimonials() {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="bg-cream py-16 lg:py-24"
+      className="bg-cream py-8 md:py-16"
     >
       <div className={CONTENT}>
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
@@ -14,7 +14,7 @@ export default function AboutTestimonials() {
         </p>
         <h2
           id="testimonials-heading"
-          className="mt-3 text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+          className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
         >
           What people say
         </h2>
@@ -26,10 +26,10 @@ export default function AboutTestimonials() {
                 <p className="text-xs font-semibold uppercase tracking-wide text-black/50">
                   Sample testimonial
                 </p>
-                <blockquote className="mt-3 text-lg leading-relaxed text-black/80">
+                <blockquote className="mt-3 text-sm md:text-lg leading-relaxed text-black/80">
                   “{quote}”
                 </blockquote>
-                <figcaption className="mt-5 text-sm">
+                <figcaption className="mt-5 text-xs md:text-sm">
                   <span className="block font-semibold text-primary">
                     {name}
                   </span>

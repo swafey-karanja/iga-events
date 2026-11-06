@@ -22,7 +22,7 @@ export default function AboutHero() {
       />
 
       <div
-        className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-48`}
+        className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-48 backdrop-blur-xs`}
       >
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
           <span aria-hidden className="size-1.5 bg-secondary" />
@@ -35,7 +35,7 @@ export default function AboutHero() {
           <span className="block">People first.</span>
           <span className="block">Possibilities everywhere.</span>
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-xs leading-relaxed text-white/85 sm:text-lg">
           {ABOUT.tagline}
         </p>
       </div>

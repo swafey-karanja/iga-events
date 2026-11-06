@@ -4,7 +4,7 @@ import { CONTENT } from "@/src/lib/constants/layout";
 
 export default function CareersIntro() {
   return (
-    <section aria-labelledby="life-heading" className="bg-cream py-16 lg:py-24">
+    <section aria-labelledby="life-heading" className="bg-cream py-8 md:py-16">
       <div className={`${CONTENT} grid gap-10 lg:grid-cols-2 lg:gap-16`}>
         <div>
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
@@ -13,11 +13,11 @@ export default function CareersIntro() {
           </p>
           <h2
             id="life-heading"
-            className="mt-3 text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+            className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
           >
             The people behind the experience
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/70">
+          <p className="mt-6 max-w-xl text-xs md:text-base leading-relaxed text-black/70">
             Interested in the people behind the experience? We welcome
             expressions of interest for future opportunities. Share your profile
             and the kind of work you’d love to be part of.
@@ -31,7 +31,10 @@ export default function CareersIntro() {
           </h3>
           <ul className="mt-4 space-y-3">
             {BENEFITS.map(({ id, title }) => (
-              <li key={id} className="flex items-center gap-3 text-base">
+              <li
+                key={id}
+                className="flex items-center gap-3 text-xs md:text-base"
+              >
                 <DoneIcon
                   aria-hidden
                   fontSize="small"

@@ -26,7 +26,7 @@ export default function ContactHero() {
         className="absolute inset-0 -z-10 bg-linear-to-b from-black/70 via-primary/70 to-primary/90"
       />
       <div
-        className={`${CONTENT} pb-12 pt-28 sm:pb-16 sm:pt-36 xl:pb-20 xl:pt-44`}
+        className={`${CONTENT} pb-12 pt-28 sm:pb-16 sm:pt-36 xl:pb-20 xl:pt-44 backdrop-blur-xs`}
       >
         <nav aria-label="Breadcrumb" className="text-xs text-white/70">
           <ol className="flex items-center gap-2">
@@ -45,7 +45,7 @@ export default function ContactHero() {
 
         <h1
           id="contact-heading"
-          className="mt-6 font-heading text-4xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+          className="mt-6 font-heading text-3xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
         >
           Contact us
         </h1>
@@ -58,7 +58,7 @@ export default function ContactHero() {
                 <a
                   href={href}
                   aria-label={label}
-                  className="grid size-11 place-items-center border border-white/30 transition-colors hover:border-white hover:bg-white hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
+                  className="grid size-8 md:size-11 place-items-center border border-white/30 transition-colors hover:border-white hover:bg-white hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
                 >
                   <Icon fontSize="small" aria-hidden />
                 </a>

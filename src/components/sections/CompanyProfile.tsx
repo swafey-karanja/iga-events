@@ -9,21 +9,21 @@ export default function CompanyProfile() {
     <section
       id="company-profile"
       aria-labelledby="company-profile-heading"
-      className="bg-cream py-16"
+      className="bg-cream py-8 md:py-16"
     >
       <div className="mx-auto grid w-full items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 xl:max-w-9/12 xl:px-0">
         <div>
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-primary">
             <span aria-hidden className="size-1.5 bg-primary" />
             Company profile
           </p>
           <h2
             id="company-profile-heading"
-            className="mt-3 text-4xl font-medium tracking-tight text-primary sm:text-5xl lg:text-6xl xl:text-7xl"
+            className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-5xl lg:text-6xl xl:text-7xl"
           >
             <span className="block">The bigger picture.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/70 sm:mt-8">
+          <p className="mt-6 text-xs max-w-xl md:text-base leading-relaxed text-black/70 sm:mt-8">
             An introduction to our approach, capabilities and event formats — in
             one considered document. Designed for clients, sponsors, exhibitors
             and partners.
@@ -32,14 +32,14 @@ export default function CompanyProfile() {
           <a
             href={PROFILE_PDF_SRC}
             download
-            className="group mt-8 inline-flex w-full items-center justify-between gap-10 bg-secondary px-6 py-4 font-heading text-sm font-medium text-white transition-colors duration-200 hover:bg-[#004d2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto motion-reduce:transition-none"
+            className="group mt-8 inline-flex w-full items-center justify-between gap-10 bg-blue px-6 py-4 font-heading text-sm font-medium text-white transition-colors duration-200 hover:bg-blue focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto motion-reduce:transition-none"
           >
             Download company profile
             <span className="sr-only">(PDF)</span>
             <DownloadIcon
               fontSize="small"
               aria-hidden
-              className="transition-transform duration-200 group-hover:translate-y-0.5 motion-reduce:transition-none"
+              className="transition-transform duration-800 group-hover:translate-y-0.5 motion-reduce:transition-none"
             />
           </a>
 

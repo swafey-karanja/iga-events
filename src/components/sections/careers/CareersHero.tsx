@@ -18,7 +18,7 @@ export default function CareersHero() {
         className="absolute inset-0 -z-10 bg-linear-to-b from-black/70 via-primary/70 to-primary/90"
       />
       <div
-        className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-44`}
+        className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-44 backdrop-blur-xs`}
       >
         <nav aria-label="Breadcrumb" className="text-xs text-white/70">
           <ol className="flex items-center gap-2">
@@ -42,7 +42,7 @@ export default function CareersHero() {
           <span className="block">Great gatherings.</span>
           <span className="block">Start with great people.</span>
         </h1>
-        <p className="mt-6 text-base text-white/85 sm:text-lg">
+        <p className="mt-6 text-xs text-white/85 sm:text-lg">
           Curiosity. Collaboration. Craft.
         </p>
       </div>

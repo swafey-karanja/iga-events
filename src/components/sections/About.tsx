@@ -28,16 +28,16 @@ export default function About() {
         />
       </div>
 
-      <div className="mx-auto w-full max-w-10/12 flex min-h-96 flex-col justify-center py-16">
+      <div className="mx-auto w-full max-w-10/12 flex min-h-96 flex-col justify-center py-8 md:py-16">
         <div className="max-w-4xl">
-          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
+          <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide">
             <span aria-hidden className="size-1.5 bg-secondary" />
             About us
           </p>
 
           <h2
             id="about-heading"
-            className="mt-3 text-4xl font-medium tracking-tight text-white lg:text-7xl"
+            className="mt-3 text-3xl font-semibold tracking-tight text-white lg:text-7xl"
           >
             <span className="block">People first.</span>
             <span className="block">Possibilities everywhere.</span>

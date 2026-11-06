@@ -3,10 +3,7 @@ import { CONTENT } from "@/src/lib/constants/layout";
 
 export default function AboutIntro() {
   return (
-    <section
-      aria-labelledby="intro-heading"
-      className="bg-cream py-16 lg:py-24"
-    >
+    <section aria-labelledby="intro-heading" className="bg-cream py-8 md:py-16">
       <div className={`${CONTENT} grid gap-10 lg:grid-cols-2 lg:gap-16`}>
         <div>
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
@@ -15,11 +12,11 @@ export default function AboutIntro() {
           </p>
           <h2
             id="intro-heading"
-            className="mt-3 text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+            className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
           >
             Who we are
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/70">
+          <p className="mt-6 max-w-xl text-xs leading-relaxed text-black/70">
             {ABOUT.introduction}
           </p>
         </div>

@@ -7,7 +7,7 @@ export default function CareersJobs({ jobs }: { jobs: Job[] }) {
     <section
       id="roles"
       aria-labelledby="roles-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-white py-8 md:py-16"
     >
       <div className={CONTENT}>
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
@@ -16,7 +16,7 @@ export default function CareersJobs({ jobs }: { jobs: Job[] }) {
         </p>
         <h2
           id="roles-heading"
-          className="mt-3 text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+          className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
         >
           {jobs.length > 0 ? "Find your place" : "No current vacancies listed"}
         </h2>
@@ -28,7 +28,7 @@ export default function CareersJobs({ jobs }: { jobs: Job[] }) {
             ))}
           </ul>
         ) : (
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/70">
+          <p className="mt-6 max-w-xl text-sm md:text-base leading-relaxed text-black/70">
             We don’t have any open roles right now, but we’d still love to hear
             from you. Register your interest below.
           </p>

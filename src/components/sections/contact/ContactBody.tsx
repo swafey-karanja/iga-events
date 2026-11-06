@@ -9,13 +9,13 @@ export default function ContactBody() {
     <section
       id="enquiry"
       aria-labelledby="enquiry-heading"
-      className="bg-cream py-16 lg:py-24"
+      className="bg-cream py-8 md:py-16"
     >
       <div
         className={`${CONTENT} grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16`}
       >
         <div className="order-2 lg:order-1">
-          <h2 className="text-2xl font-medium tracking-tight text-primary sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
             Our office
           </h2>
           <dl className="mt-6 flex flex-col gap-5">
@@ -24,7 +24,9 @@ export default function ContactBody() {
                 <dt className="text-xs font-semibold uppercase tracking-wide text-primary">
                   {label}
                 </dt>
-                <dd className="mt-1.5 text-base text-black/70">{value}</dd>
+                <dd className="mt-1.5 text-xs md:text-base text-black/70">
+                  {value}
+                </dd>
               </div>
             ))}
           </dl>
@@ -53,7 +55,7 @@ export default function ContactBody() {
         <div className="order-1 lg:order-2">
           <h2
             id="enquiry-heading"
-            className="text-2xl font-medium tracking-tight text-primary sm:text-3xl"
+            className="text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
           >
             Send us a message
           </h2>

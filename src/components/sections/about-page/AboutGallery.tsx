@@ -6,12 +6,16 @@ export default function AboutGallery() {
   return (
     <section
       aria-labelledby="gallery-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-white py-8 md:py-16"
     >
       <div className={CONTENT}>
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
+          <span aria-hidden className="size-1.5 bg-primary" />
+          THe experience
+        </p>
         <h2
           id="gallery-heading"
-          className="text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+          className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
         >
           Moments from our events
         </h2>

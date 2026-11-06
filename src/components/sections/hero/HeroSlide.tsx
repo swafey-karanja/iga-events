@@ -16,13 +16,15 @@ type HeroSlideProps = {
 export default function HeroSlide({ event, Heading }: HeroSlideProps) {
   return (
     <div className="container-page flex min-h-svh flex-col items-center justify-center pb-24 pt-24 text-center sm:pt-28 xl:pb-16 xl:pt-40">
-      <p className="flex items-center justify-center gap-3 text-sm font-medium uppercase tracking-wide text-secondary sm:text-lg">
-        <span
-          aria-hidden
-          className="size-3 shrink-0 bg-secondary sm:size-3.5"
-        />
-        Featured upcoming event
-      </p>
+      {event.featured && (
+        <p className="flex items-center justify-center gap-3 text-sm font-medium uppercase tracking-wide text-secondary sm:text-lg">
+          <span
+            aria-hidden
+            className="size-3 shrink-0 bg-secondary sm:size-3.5"
+          />
+          Featured upcoming event
+        </p>
+      )}
 
       <Heading className="mt-6 max-w-7xl text-balance font-heading text-[clamp(2.25rem,7vw,5.5rem)] font-semibold leading-[1.05] tracking-tight sm:mt-8">
         {event.title}
@@ -44,7 +46,7 @@ export default function HeroSlide({ event, Heading }: HeroSlideProps) {
         ))}
       </dl>
 
-      <p className="mt-6 max-w-4xl text-sm leading-relaxed sm:mt-8 sm:text-base">
+      <p className="mt-6 max-w-4xl text-xs leading-relaxed sm:mt-8 sm:text-base">
         {event.description}
       </p>
       <ArrowLinkExternal href={event.href} variant="secondary" className="mt-8">

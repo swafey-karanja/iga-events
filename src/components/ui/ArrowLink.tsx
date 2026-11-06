@@ -11,10 +11,9 @@ type ArrowLinkProps = {
 };
 
 const variants = {
-  primary:
-    "bg-secondary text-white hover:bg-[#004d2c] focus-visible:outline-primary",
+  primary: "bg-blue text-white hover:bg-blue/70 focus-visible:outline-primary ",
   secondary:
-    "bg-secondary text-white rounded-3xl hover:bg-[#0e8a50] focus-visible:outline-white",
+    "bg-blue text-white rounded-3xl hover:bg-blue/70 focus-visible:outline-white",
 };
 
 export default function ArrowLink({
@@ -28,13 +27,13 @@ export default function ArrowLink({
     <Link
       href={href}
       onClick={onClick}
-      className={`group items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`group items-center justify-between gap-5 px-5 md:px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-800 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
     >
       {children}
       <ArrowOutwardIcon
         fontSize="small"
         aria-hidden
-        className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+        className="transition-transform duration-800 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
       />
     </Link>
   );
@@ -51,7 +50,7 @@ export function ButtonLInk({
     <Link
       href={href}
       onClick={onClick}
-      className={`group inline-flex items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`group inline-flex items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-800 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
     >
       {children}
     </Link>
@@ -68,13 +67,13 @@ export function ArrowLinkExternal({
     <a
       href={href}
       target="_blank"
-      className={`group inline-flex items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-200 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
+      className={`group inline-flex items-center justify-between gap-5 px-10 py-4 font-heading text-sm md:text-[16px] font-medium transition-colors duration-800 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 ${variants[variant]} ${className}`}
     >
       {children}
       <ArrowOutwardIcon
         fontSize="small"
         aria-hidden
-        className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
+        className="transition-transform duration-800 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
       />
     </a>
   );

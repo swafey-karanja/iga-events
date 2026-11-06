@@ -11,6 +11,9 @@ export type EventListing = {
   href: string;
   /** External website with the event's details */
   websiteUrl: string;
+  description?: string;
+  category?: string;
+  guests?: number;
   status: EventStatus;
 };
 
@@ -21,7 +24,7 @@ const PLACEHOLDER_IMAGE =
 function placeholder(n: number, status: EventStatus): EventListing {
   return {
     id: `${status}-${n}`,
-    name: `[Event name ${n}]`,
+    name: `iGA Summit ${n}`,
     date: "[Date to be confirmed]",
     location: "[City, Country]",
     image:
@@ -29,6 +32,8 @@ function placeholder(n: number, status: EventStatus): EventListing {
     imageAlt: "[Event photo description]",
     href: "#events", // TODO: event page route
     websiteUrl: "https://example.com", // TODO: real event website
+    description:
+      "The layout follows your image. A large heading sits on the left with a short intro on the right. Below are rounded cards in a three-column grid on desktop, two on tablet and one on mobile. ",
     status,
   };
 }

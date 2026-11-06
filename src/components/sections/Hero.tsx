@@ -5,7 +5,8 @@ import { getHeroEvents } from "@/src/lib/data/events";
 // PLACEHOLDERS: replace with real assets
 const HERO_VIDEO_SRC =
   "https://res.cloudinary.com/odxuv15g/video/upload/f_auto,q_auto/2026-iga-summit_ndjdc4_p3oq7y.mp4";
-const HERO_POSTER_SRC = "/placeholders/hero-poster.jpg";
+const HERO_POSTER_SRC =
+  "https://res.cloudinary.com/odxuv15g/image/upload/v1793960420/Screenshot_20261106_131942_q3zoo6.png";
 
 export default async function Hero() {
   const events = await getHeroEvents();

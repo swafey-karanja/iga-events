@@ -8,7 +8,7 @@ export default function AboutPillars() {
   return (
     <section
       aria-labelledby="pillars-heading"
-      className="bg-white py-16 lg:py-24"
+      className="bg-white py-8 md:py-16"
     >
       <div className={CONTENT}>
         <div className="flex flex-wrap items-end justify-between gap-4">
@@ -19,22 +19,11 @@ export default function AboutPillars() {
             </p>
             <h2
               id="pillars-heading"
-              className="mt-3 text-3xl font-medium tracking-tight text-primary sm:text-4xl lg:text-5xl"
+              className="mt-3 text-3xl font-semibold tracking-tight text-primary sm:text-4xl lg:text-5xl"
             >
               Every detail. One connected vision.
             </h2>
           </div>
-          {/*<Link*/}
-          {/*  href="/#capabilities"*/}
-          {/*  className="group inline-flex items-center gap-1.5 text-sm font-semibold text-primary underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"*/}
-          {/*>*/}
-          {/*  Explore our capabilities*/}
-          {/*  <ArrowOutwardIcon*/}
-          {/*    fontSize="inherit"*/}
-          {/*    aria-hidden*/}
-          {/*    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"*/}
-          {/*  />*/}
-          {/*</Link>*/}
         </div>
 
         <ul className="mt-10 grid gap-10 sm:mt-12 md:grid-cols-3 md:gap-8">
@@ -52,7 +41,7 @@ export default function AboutPillars() {
               <h3 className="mt-5 font-heading text-xl font-semibold text-primary">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-black/70">
+              <p className="mt-2 text-xs sm:text-sm leading-relaxed text-black/70">
                 {description}
               </p>
             </li>

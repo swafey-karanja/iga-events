@@ -5,14 +5,14 @@ export default function ContactCta() {
   return (
     <section
       aria-labelledby="contact-cta-heading"
-      className="bg-primary py-16 text-white lg:py-24"
+      className="bg-primary py-8 md:py-16 text-white"
     >
       <div
         className={`${CONTENT} flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between`}
       >
         <h2
           id="contact-cta-heading"
-          className="max-w-2xl text-balance text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl"
+          className="max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
         >
           Not sure where to start? See what we can do.
         </h2>

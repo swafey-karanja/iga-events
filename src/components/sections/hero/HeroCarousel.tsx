@@ -83,18 +83,18 @@ export default function HeroCarousel({ events }: { events: HeroEvent[] }) {
       </button>
 
       <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center">
-        <button
-          type="button"
-          onClick={toggle}
-          aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
-          className="grid size-10 place-items-center focus-visible:outline-2 focus-visible:outline-white"
-        >
-          {isPlaying ? (
-            <PauseIcon fontSize="small" aria-hidden />
-          ) : (
-            <PlayArrowIcon fontSize="small" aria-hidden />
-          )}
-        </button>
+        {/*<button*/}
+        {/*  type="button"*/}
+        {/*  onClick={toggle}*/}
+        {/*  aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}*/}
+        {/*  className="grid size-10 place-items-center focus-visible:outline-2 focus-visible:outline-white"*/}
+        {/*>*/}
+        {/*  {isPlaying ? (*/}
+        {/*    <PauseIcon fontSize="small" aria-hidden />*/}
+        {/*  ) : (*/}
+        {/*    <PlayArrowIcon fontSize="small" aria-hidden />*/}
+        {/*  )}*/}
+        {/*</button>*/}
         {events.map((event, i) => (
           <button
             key={event.id}
@@ -105,10 +105,10 @@ export default function HeroCarousel({ events }: { events: HeroEvent[] }) {
             className="group px-1 py-4 focus-visible:outline-2 focus-visible:outline-white"
           >
             <span
-              className={`block h-1 transition-all duration-300 motion-reduce:transition-none ${
+              className={`block h-1 md:h-2 transition-all duration-300 motion-reduce:transition-none ${
                 i === index
-                  ? "w-24 lg:w-120 bg-secondary"
-                  : "w-12 bg-white/60 group-hover:bg-white"
+                  ? "w-24 lg:w-220 bg-secondary"
+                  : "w-12 lg:w-40 bg-white/60 group-hover:bg-white"
               }`}
             />
           </button>
