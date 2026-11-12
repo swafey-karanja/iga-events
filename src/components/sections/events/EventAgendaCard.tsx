@@ -7,7 +7,15 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 type Props = { event: EventListing };
 
 export default function EventAgendaCard({ event }: Props) {
-  const { name, date, location, image, imageAlt, href, description } = event;
+  const {
+    name,
+    startDate,
+    location,
+    image,
+    imageAlt,
+    websiteUrl,
+    description,
+  } = event;
 
   return (
     <article className="flex h-full flex-col rounded-3xl border border-back bg-white/70 px-3.5 py-4">
@@ -28,7 +36,7 @@ export default function EventAgendaCard({ event }: Props) {
         <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-primary font-medium">
           <span className="inline-flex items-center gap-1.5">
             <CalendarMonthIcon fontSize="inherit" aria-hidden />
-            {date}
+            {startDate}
           </span>
           <span className="inline-flex items-center gap-1.5">
             <LocationOnIcon fontSize="inherit" aria-hidden />
@@ -46,7 +54,7 @@ export default function EventAgendaCard({ event }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm underline decoration-dotted underline-offset-4 text-blue-500 font-semibold transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
-            href={href}
+            href={websiteUrl}
           >
             Explore the Event <ArrowOutwardIcon fontSize="small" />
           </a>

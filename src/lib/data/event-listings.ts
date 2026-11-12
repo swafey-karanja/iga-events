@@ -3,12 +3,11 @@ export type EventStatus = "upcoming" | "past";
 export type EventListing = {
   id: string;
   name: string;
-  date: string;
+  startDate: string;
+  endDate?: string;
   location: string;
   image: string;
   imageAlt: string;
-  /** Internal event page, which the whole card links to */
-  href: string;
   /** External website with the event's details */
   websiteUrl: string;
   description?: string;
@@ -25,13 +24,12 @@ function placeholder(n: number, status: EventStatus): EventListing {
   return {
     id: `${status}-${n}`,
     name: `iGA Summit ${n}`,
-    date: "[Date to be confirmed]",
+    startDate: "[Date to be confirmed]",
     location: "[City, Country]",
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     imageAlt: "[Event photo description]",
-    href: "#events", // TODO: event page route
-    websiteUrl: "https://example.com", // TODO: real event website
+    websiteUrl: "https://igasummit.com", // TODO: real event website
     description:
       "The layout follows your image. A large heading sits on the left with a short intro on the right. Below are rounded cards in a three-column grid on desktop, two on tablet and one on mobile. ",
     status,

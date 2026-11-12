@@ -29,12 +29,12 @@ export default async function News() {
             <span className="block">Latest News And Trends</span>
           </h2>
 
-          <div className="flex flex-col items-start gap-6">
-            <p className="text-xs md:text-sm leading-relaxed text-black/70">
-              From the first strategic conversation to the final moment on
-              stage, an integrated approach keeps the whole experience
-              connected.
-            </p>
+          <div className="flex flex-col items-end">
+            {/*<p className="text-xs md:text-sm leading-relaxed text-black/70">*/}
+            {/*  From the first strategic conversation to the final moment on*/}
+            {/*  stage, an integrated approach keeps the whole experience*/}
+            {/*  connected.*/}
+            {/*</p>*/}
 
             <ArrowLink href="/#news">View all news</ArrowLink>
           </div>

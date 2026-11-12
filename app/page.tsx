@@ -16,8 +16,8 @@ export default function HomePage() {
       <Capabilities />
       <Stats />
       <News />
-      <About />
-      <CompanyProfile />
+      {/*<About />*/}
+      {/*<CompanyProfile />*/}
     </>
   );
 }

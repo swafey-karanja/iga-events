@@ -1,11 +1,15 @@
 // PLACEHOLDERS: replace with verified company content and real assets
 export const ABOUT = {
   tagline:
-    "We bring people, industries and ideas together through conferences, summits and exhibitions.",
+    "We organise conferences, exhibitions and industry events that connect businesses, people and opportunities across the continent.",
   introduction:
-    "We bring people, industries and ideas together through conferences, summits and exhibitions. Our approach connects strategic thinking with creative production and thoughtful delivery, wherever the conversation takes us.",
+    "IGA Events is an Africa-focused events company specialising in conferences, exhibitions, summits and industry gatherings.\n" +
+    "\n" +
+    "With roots in the gaming industry through our flagship iGaming AFRIKA Summit, our work spans sectors including technology, finance, tourism, entertainment, energy, healthcare and beyond. We bring businesses, professionals and industry leaders together through events that encourage meaningful connections and new opportunities.\n" +
+    "\n" +
+    "We work with partners across Africa and internationally to develop, organise and deliver events of all sizes and formats.",
   mission:
-    "To create the conditions for meaningful connection — across industries, places and perspectives.",
+    "To bring people and industries together through well organised events that encourage connections, conversations and business opportunities.",
 } as const;
 
 export type Pillar = {

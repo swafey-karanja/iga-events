@@ -18,7 +18,7 @@ export default async function PastEvents() {
         {/*<div className="flex flex-wrap items-end justify-between gap-2">*/}
         <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-white">
           <span aria-hidden className="size-1.5 bg-white" />
-          The future
+          OUR PORTFOLIO
         </p>
         <div className="mt-2 md:mt-6 grid gap-6 sm:gap-8 xl:grid-cols-[1fr_22rem] xl:items-end xl:gap-16">
           <h2
@@ -29,7 +29,8 @@ export default async function PastEvents() {
             Events we have delivered
           </h2>
           <p className="max-w-sm text-[15px] leading-relaxed text-white md:pt-3 font-medium">
-            Placeholder: a short line introducing the events people can join.
+            From concept to execution, we deliver impactful events that connect
+            industries and create lasting value.
           </p>
           {/*</div>*/}
         </div>

@@ -45,8 +45,8 @@ export default async function Stats() {
         <div className="flex flex-col justify-between gap-12 lg:col-span-2">
           <div>
             <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest">
-              <span aria-hidden className="size-1.5 bg-secondary" />A broader
-              perspective
+              <span aria-hidden className="size-1.5 bg-secondary" />
+              OUR IMPACT
             </p>
             <h2
               id="stats-heading"
@@ -80,7 +80,7 @@ export default async function Stats() {
               </dt>
               <dd>
                 {value ? (
-                  <span className="font-heading text-2xl font-semibold sm:text-4xl xl:text-6xl">
+                  <span className="font-heading text-2xl font-semibold sm:text-4xl ">
                     {value}
                   </span>
                 ) : (

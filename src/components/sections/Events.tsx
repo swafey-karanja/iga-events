@@ -15,7 +15,7 @@ export default async function Events() {
         {/*<div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-12">*/}
         <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-primary">
           <span aria-hidden className="size-1.5 bg-secondary" />
-          The future
+          WHAT&#39;S AHEAD
         </p>
         <div className="mt-2 md:mt-6 grid gap-6 sm:gap-8 xl:grid-cols-[1fr_22rem] xl:items-end xl:gap-16">
           <h2
@@ -27,7 +27,8 @@ export default async function Events() {
           </h2>
           {/* Placeholder copy – replace with your own */}
           <p className="max-w-sm text-[13px] md:text-[15px] leading-relaxed text-black/70 md:pt-3 font-medium">
-            Placeholder: a short line introducing the events people can join.
+            We develop and deliver events across Africa, connecting local
+            opportunities with international audiences.
           </p>
           {/*</div>*/}
         </div>

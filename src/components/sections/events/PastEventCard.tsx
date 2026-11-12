@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import type { EventListing } from "@/src/lib/data/event-listings";
 
@@ -11,11 +10,11 @@ type Props = { event: EventListing };
 export default function PastEventCard({ event }: Props) {
   const {
     name,
-    date,
+    startDate,
     location,
     image,
     imageAlt,
-    href,
+    websiteUrl,
     description,
     category,
     guests,
@@ -45,12 +44,13 @@ export default function PastEventCard({ event }: Props) {
 
       <h3 className="max-w-md text-balance font-heading text-2xl font-medium leading-tight sm:text-4xl">
         {/* The link stretches over the whole card */}
-        <Link
-          href={href}
+        <a
+          href={websiteUrl}
+          target="_blank"
           className="after:absolute after:inset-0 focus-visible:outline-none"
         >
           {name}
-        </Link>
+        </a>
       </h3>
 
       {description && (
@@ -62,7 +62,7 @@ export default function PastEventCard({ event }: Props) {
       <ul className="mt-6 flex flex-wrap gap-2 pr-16">
         <li className={chip}>{location}</li>
         {guests !== undefined && <li className={chip}>{guests} guests</li>}
-        <li className={chip}>{date}</li>
+        <li className={chip}>{startDate}</li>
       </ul>
 
       <span

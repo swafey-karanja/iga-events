@@ -8,7 +8,7 @@ export default function AboutIntro() {
         <div>
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-primary">
             <span aria-hidden className="size-1.5 bg-primary" />
-            Provisional company introduction
+            GET TO KNOW US
           </p>
           <h2
             id="intro-heading"
