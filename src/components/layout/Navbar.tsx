@@ -9,12 +9,17 @@ import EventsSubmenu from "@/src/components/layout/EventsSubmenu";
 import ArrowLink from "@/src/components/ui/ArrowLink";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+import type { EventCategory } from "@/src/lib/constants/navigation";
 
 const linkBase =
   "rounded-full px-5 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-[#109F5D]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 const activeStyle = "bg-[#109F5D]/60";
 
-export default function Navbar() {
+export default function Navbar({
+  eventLinks,
+}: {
+  eventLinks: readonly EventCategory[];
+}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
@@ -92,9 +97,12 @@ export default function Navbar() {
                   {eventsOpen && (
                     <div
                       id="events-menu"
-                      className="absolute left-0 top-full min-w-64 rounded-2xl bg-black/50 p-2 backdrop-blur-xl"
+                      className="absolute left-0 top-full min-w-75 rounded-2xl bg-black/50 p-2 backdrop-blur-xl"
                     >
-                      <EventsSubmenu onNavigate={closeAll} />
+                      <EventsSubmenu
+                        categories={eventLinks}
+                        onNavigate={closeAll}
+                      />
                     </div>
                   )}
                 </li>
@@ -144,7 +152,10 @@ export default function Navbar() {
                     {label}
                   </span>
                   <div className="ml-4">
-                    <EventsSubmenu onNavigate={closeAll} />
+                    <EventsSubmenu
+                      categories={eventLinks}
+                      onNavigate={closeAll}
+                    />
                   </div>
                 </li>
               ) : (

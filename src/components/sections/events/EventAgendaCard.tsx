@@ -1,21 +1,15 @@
 import Image from "next/image";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import type { EventListing } from "@/src/lib/data/event-listings";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import type { EventListing } from "@/src/lib/data/event-listings";
+import { formatDateRange, formatLocation } from "@/src/lib/utils/event-format";
 
 type Props = { event: EventListing };
 
 export default function EventAgendaCard({ event }: Props) {
-  const {
-    name,
-    startDate,
-    location,
-    image,
-    imageAlt,
-    websiteUrl,
-    description,
-  } = event;
+  const { name, startDate, endDate, image, imageAlt, websiteUrl, description } =
+    event;
 
   return (
     <article className="flex h-full flex-col rounded-3xl border border-back bg-white/70 px-3.5 py-4">
@@ -36,19 +30,19 @@ export default function EventAgendaCard({ event }: Props) {
         <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-primary font-medium">
           <span className="inline-flex items-center gap-1.5">
             <CalendarMonthIcon fontSize="inherit" aria-hidden />
-            {startDate}
+            {formatDateRange(startDate, endDate)}
           </span>
           <span className="inline-flex items-center gap-1.5">
             <LocationOnIcon fontSize="inherit" aria-hidden />
-            {location}
+            {formatLocation(event, false)}
           </span>
         </p>
         {description && (
-          <p className="mt-4 text-[13px] leading-relaxed text-black/70">
+          <p className="mt-4 line-clamp-4 text-[13px] leading-relaxed text-black/70">
             {description}
           </p>
         )}
-        {/*mt-auto keeps the buttons aligned across cards of different heights*/}
+        {/* mt-auto keeps the links aligned across cards of different heights */}
         <div className="mt-auto pt-6">
           <a
             target="_blank"

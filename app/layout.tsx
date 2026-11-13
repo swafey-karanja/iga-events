@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Footer from "@/src/components/layout/Footer";
 import SocialSidebar from "@/src/components/layout/SocialSidebar";
 import SmoothScroll from "@/src/components/layout/SmoothScroll";
+import { getEventNavLinks } from "@/src/lib/data/event-listings";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,11 +26,12 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const eventLinks = await getEventNavLinks();
   return (
     <html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
       <body className="bg-cream text-black antialiased">
         <SmoothScroll />
-        <Navbar />
+        <Navbar eventLinks={eventLinks} />
         <SocialSidebar />
         <main>{children}</main>
         <Footer />

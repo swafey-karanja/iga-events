@@ -1,4 +1,3 @@
-import ArrowLink from "@/src/components/ui/ArrowLink";
 import PastEventCard from "@/src/components/sections/events/PastEventCard";
 import { getEventListings } from "@/src/lib/data/event-listings";
 
@@ -40,7 +39,7 @@ export default async function PastEvents() {
           {past.map((event) => (
             <li
               key={event.id}
-              className="sticky top-24 h-[min(45rem,calc(100svh-7rem))]"
+              className="sticky top-24 h-[min(55rem,calc(100svh-7rem))]"
             >
               <PastEventCard event={event} />
             </li>

@@ -2,28 +2,17 @@
 
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import PauseIcon from "@mui/icons-material/Pause";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import HeroSlide from "@/src/components/sections/hero/HeroSlide";
 import { useCarousel } from "@/src/hooks/useCarousel";
-import type { HeroEvent } from "@/src/lib/data/events";
+import type { EventListing } from "@/src/lib/data/event-listings";
 import { toLoopItems } from "@/src/lib/utils/loop";
 
 const controlClass =
   "z-10 grid size-10 place-items-center bg-black/30 text-white backdrop-blur-sm transition-colors hover:bg-secondary hover:text-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none";
 
-export default function HeroCarousel({ events }: { events: HeroEvent[] }) {
-  const {
-    index,
-    position,
-    animate,
-    isPlaying,
-    next,
-    prev,
-    goTo,
-    toggle,
-    pauseProps,
-  } = useCarousel(events.length);
+export default function HeroCarousel({ events }: { events: EventListing[] }) {
+  const { index, position, animate, isPlaying, next, prev, goTo, pauseProps } =
+    useCarousel(events.length);
   const slides = toLoopItems(events);
 
   return (
