@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { NAV_LINKS } from "@/src/lib/constants/navigation";
 import { SITE } from "@/src/lib/constants/footer";
+import Image from "next/image";
 
 const headingClass = "text-sm uppercase tracking-wide text-white/60";
 const focusClass =
@@ -11,13 +12,15 @@ export default function Footer() {
     <footer className="bg-black/95 text-white">
       <div className="mx-auto w-full max-w-9/12 grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr] lg:py-16">
         <div>
-          <Link
-            href="/"
-            aria-label="Convene home"
-            className={`inline-flex items-center gap-1.5 font-heading text-4xl font-semibold tracking-tight lg:text-5xl ${focusClass}`}
-          >
-            convene
-            <span aria-hidden className="mt-4 size-2.5 bg-secondary" />
+          <Link href="/" aria-label="Company name – Home" className="shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Company name"
+              width={160}
+              height={56}
+              priority
+              className="h-10 w-auto xl:h-16"
+            />
           </Link>
           <p className="mt-8 max-w-120 md:max-w-56 text-lg leading-snug">
             {SITE.tagline}

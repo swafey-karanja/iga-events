@@ -10,6 +10,7 @@ import ArrowLink from "@/src/components/ui/ArrowLink";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import type { EventCategory } from "@/src/lib/constants/navigation";
+import Image from "next/image";
 
 const linkBase =
   "rounded-full px-5 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-[#109F5D]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
@@ -60,11 +61,16 @@ export default function Navbar({
       />
       <div className="mx-auto flex w-full max-w-10/12 items-center justify-between py-5">
         {/* Logo placeholder – replace with your logo */}
-        <Link
-          href="/"
-          className="font-heading text-xl font-semibold text-white"
-        >
-          LOGO
+        {/* Logo placeholder – replace /images/logo.svg with your logo file */}
+        <Link href="/" aria-label="Company name – Home" className="shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Company name"
+            width={140}
+            height={48}
+            priority
+            className="h-10 w-auto xl:h-14"
+          />
         </Link>
 
         {/* Desktop nav */}
