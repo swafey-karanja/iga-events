@@ -63,19 +63,80 @@ export type Testimonial = {
   id: string;
   quote: string;
   name: string;
-  role: string;
+  role?: string;
 };
 
-export const TESTIMONIALS: readonly Testimonial[] = [1, 2, 3].map((n) => ({
-  id: `testimonial-${n}`,
-  quote: "[Client testimonial to be added]",
-  name: "[Name]",
-  role: "[Job title, Company]",
-}));
+export const TESTIMONIALS: readonly Testimonial[] = [
+  {
+    id: `1`,
+    quote:
+      "iGA Summit provided an outstanding platform for meaningful networking and industry connections. The event delivered real value and exceeded expectations.",
+    name: "Brian Kubasu",
+    role: "AxumBet",
+  },
+  {
+    id: `2`,
+    quote:
+      "From the conference sessions to the networking opportunities and overall event experience, iGA Summit brought together the right people, ideas, and opportunities under one roof.",
+    name: "Bwalya Noah",
+    role: "Pawatech",
+  },
+  {
+    id: `3`,
+    quote:
+      "The exhibition area, networking opportunities, venue setup, and hospitality created an excellent environment for business engagement. I would definitely attend again.",
+    name: "Morris",
+  },
+  {
+    id: `4`,
+    quote:
+      "The conference sessions were insightful, relevant, and professionally delivered. iGA Summit exceeded my expectations and provided valuable industry knowledge.",
+    name: "Paul Adika",
+    role: "Jump Extreme",
+  },
+];
 
-export const GALLERY = [1, 2, 3, 4, 5].map((n) => ({
-  id: `photo-${n}`,
-  image:
-    "https://images.unsplash.com/photo-1711390811760-1e9f2ab28cb7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-  imageAlt: "[Event photo description]",
-}));
+export const GALLERY = [
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632494/iGA_Welcome_Dinner-89_vt8njc_dk2ts9.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632474/DSC03923_boivuu_ziqoxi.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632401/IGA_Safari-122_hiwzca_mxrbdh.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632400/IGA_Safari-119_sexdxt_kdjwqm.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632320/iGA_Main_Stage_2-97_vmq50w_i8wrzg.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632301/COM_3263_yum26k_npgw33.webp",
+    imageAlt: "[Event photo description]",
+  },
+  {
+    id: `photo-1`,
+    image:
+      "https://res.cloudinary.com/odxuv15g/image/upload/v1784632280/DJI_0876_szyzmj_eriyui.webp",
+    imageAlt: "[Event photo description]",
+  },
+];

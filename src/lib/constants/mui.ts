@@ -18,3 +18,7 @@ export const SUBMIT_SX = {
   bgcolor: "#109f5d",
   "&:hover": { bgcolor: "#0e8a50" },
 } as const;
+
+export const CHECK_SX = {
+  "&.Mui-checked": { color: "#006239" },
+} as const;

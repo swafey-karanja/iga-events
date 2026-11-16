@@ -122,7 +122,7 @@ export default function Navbar({
         </nav>
 
         <ArrowLink
-          href="#contact"
+          href="/contact#contactForm"
           variant="secondary"
           className="hidden xl:inline-flex"
         >

@@ -3,11 +3,15 @@ export const SITE = {
   tagline: "Bringing people and possibilities together.",
   profilePdf: "/placeholders/company-profile.pdf",
   contact: [
-    { label: "Email", value: "[Email address to be added]" },
-    { label: "Telephone", value: "[Phone number to be added]" },
-    { label: "Office", value: "[Address, city and country to be added]" },
+    { label: "Email", value: "events@igasummit.com" },
+    { label: "Telephone", value: "+254 782 828 237" },
+    {
+      label: "Office",
+      value:
+        "330 Diani Road, off Ole Dume Kilimani, Ground Floor, Office No. 3",
+    },
   ],
-  copyright: "© [Year] [Company name]. All rights reserved.",
+  copyright: "© 2026 iGA Events. All rights reserved.",
 } as const;
 
 export const SOCIAL_LINKS = [
