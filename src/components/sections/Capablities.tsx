@@ -24,8 +24,8 @@ export default function Capabilities() {
           </h2>
 
           <p className="text-sm leading-relaxed text-black/70">
-            From the first strategic conversation to the final moment on stage,
-            an integrated approach keeps the whole experience connected.
+            From small gatherings to international summits, we have the people
+            and experience to deliver across Africa.
           </p>
         </div>
 

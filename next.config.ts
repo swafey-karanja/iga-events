@@ -26,6 +26,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "plus.unsplash.com",
       },
+      { protocol: "https", hostname: "cdn.sanity.io" },
+      {
+        protocol: "https",
+        hostname: "igamingafrika.com",
+        pathname: "/wp-content/**",
+      },
     ],
   },
 };

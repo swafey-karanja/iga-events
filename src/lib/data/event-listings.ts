@@ -1,48 +1,87 @@
+import { sanityClient } from "@/src/lib/sanity/client";
+import { cacheLife, cacheTag } from "next/cache";
+import type { EventCategory } from "@/src/lib/constants/navigation";
+
 export type EventStatus = "upcoming" | "past";
 
 export type EventListing = {
   id: string;
   name: string;
-  date: string;
-  location: string;
+  badge?: string;
+  title?: string;
+  tagline?: string;
+  description?: string;
   image: string;
   imageAlt: string;
-  /** Internal event page, which the whole card links to */
-  href: string;
-  /** External website with the event's details */
+  startDate: string;
+  endDate?: string;
+  venue?: string;
+  city: string;
+  country: string;
   websiteUrl: string;
-  description?: string;
-  category?: string;
-  guests?: number;
+  featured?: boolean;
   status: EventStatus;
 };
 
-// PLACEHOLDERS: replace with real events and assets
-const PLACEHOLDER_IMAGE =
-  "https://res.cloudinary.com/odxuv15g/image/upload/f_auto,q_auto/IGA_Safari-135_hwblya_rep4to.webp";
+// status is derived from the dates, so events move to "past" automatically
+const EVENTS_QUERY = `*[_type == "event" && defined(image) && defined(startDate)] | order(startDate asc) {
+  "id": _id,
+  name, badge, title, tagline, description,
+  image,
+  "imageAlt": coalesce(imageAlt, name),
+  startDate, endDate, venue, city, country, websiteUrl, featured, status
+}`;
 
-function placeholder(n: number, status: EventStatus): EventListing {
-  return {
-    id: `${status}-${n}`,
-    name: `iGA Summit ${n}`,
-    date: "[Date to be confirmed]",
-    location: "[City, Country]",
-    image:
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
-    imageAlt: "[Event photo description]",
-    href: "#events", // TODO: event page route
-    websiteUrl: "https://example.com", // TODO: real event website
-    description:
-      "The layout follows your image. A large heading sits on the left with a short intro on the right. Below are rounded cards in a three-column grid on desktop, two on tablet and one on mobile. ",
-    status,
-  };
-}
-
-const PLACEHOLDER_EVENTS: EventListing[] = [
-  ...Array.from({ length: 6 }, (_, i) => placeholder(i + 1, "upcoming")),
-  ...Array.from({ length: 3 }, (_, i) => placeholder(i + 1, "past")),
-];
+// GROQ returns null for empty fields, but the type uses optional (undefined)
+const dropNulls = (e: object) =>
+  Object.fromEntries(
+    Object.entries(e).filter(([, v]) => v !== null),
+  ) as EventListing;
 
 export async function getEventListings(): Promise<EventListing[]> {
-  return PLACEHOLDER_EVENTS; // later: fetch from CMS/API with revalidation
+  "use cache";
+  cacheLife("hours"); // refreshes hourly, as a safety net
+  cacheTag("event"); // the webhook revalidates this tag
+
+  // const today = new Date().toISOString().slice(0, 10);
+  const raw = await sanityClient.fetch<object[]>(EVENTS_QUERY);
+  // const types = await sanityClient.fetch(`array::unique(*[]._type)`);
+  // const total = await sanityClient.fetch(`count(*[_type == "event"])`);
+  // const sample = await sanityClient.fetch(
+  //   `*[_type == "event"][0...2]{_id, _type, startDate, image}`,
+  // );
+  // console.log({ types, total, sample });
+  // console.log({ raw });
+  const events = raw.map(dropNulls);
+
+  // Upcoming soonest first, past most recent first
+  return [
+    ...events.filter((e) => e.status === "upcoming"),
+    ...events.filter((e) => e.status === "past").reverse(),
+  ];
+}
+
+export async function getEventNavLinks(): Promise<EventCategory[]> {
+  const events = await getEventListings();
+  const group = (label: string, status: EventStatus): EventCategory => ({
+    label,
+    items: events
+      .filter((e) => e.status === status)
+      .map((e) => ({ label: e.name, href: e.websiteUrl })),
+  });
+
+  // Hide a group when it has no events
+  return [
+    group("Upcoming Events", "upcoming"),
+    group("Past Events", "past"),
+  ].filter((g) => g.items.length > 0);
+}
+
+/** Hero shows featured upcoming events first, max 3 */
+export async function getHeroEvents(): Promise<EventListing[]> {
+  const events = await getEventListings();
+  return events
+    .filter((e) => e.status === "upcoming")
+    .sort((a, b) => Number(!!b.featured) - Number(!!a.featured))
+    .slice(0, 3);
 }

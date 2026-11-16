@@ -19,7 +19,7 @@ const PLACEHOLDER_EVENTS: HeroEvent[] = [
     badge: "Sample event",
     featured: true,
     title: "iGaming AFRIKA Summit 2027",
-    tagline: "Africa's largest gaming show",
+    tagline: "Africa's Largest Gaming Show",
     description:
       "After a groundbreaking inaugural event, iGaming AFRIKA Summit 2027 continues its journey as Africa’s gateway to global gaming business, innovation, and investment.\n" +
       "\n" +

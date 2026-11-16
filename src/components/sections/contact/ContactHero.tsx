@@ -49,23 +49,6 @@ export default function ContactHero() {
         >
           Contact us
         </h1>
-
-        <ul className="mt-8 flex gap-3">
-          {SOCIAL_LINKS.map(({ label, href }) => {
-            const Icon = SOCIAL_ICONS[label];
-            return (
-              <li key={label}>
-                <a
-                  href={href}
-                  aria-label={label}
-                  className="grid size-8 md:size-11 place-items-center border border-white/30 transition-colors hover:border-white hover:bg-white hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:transition-none"
-                >
-                  <Icon fontSize="small" aria-hidden />
-                </a>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </section>
   );

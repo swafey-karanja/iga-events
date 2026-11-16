@@ -19,21 +19,21 @@ export default function AboutTestimonials() {
           What people say
         </h2>
 
-        <ul className="mt-10 grid gap-10 sm:mt-12 md:grid-cols-3 md:gap-8">
+        <ul className="mt-10 grid gap-10 sm:mt-12 md:grid-cols-4 md:gap-8">
           {TESTIMONIALS.map(({ id, quote, name, role }) => (
             <li key={id}>
               <figure className="h-full border-l-4 border-secondary pl-6">
                 <p className="text-xs font-semibold uppercase tracking-wide text-black/50">
                   Sample testimonial
                 </p>
-                <blockquote className="mt-3 text-sm md:text-lg leading-relaxed text-black/80">
+                <blockquote className="mt-3 text-sm md:text-md leading-relaxed text-black/80">
                   “{quote}”
                 </blockquote>
                 <figcaption className="mt-5 text-xs md:text-sm">
                   <span className="block font-semibold text-primary">
                     {name}
                   </span>
-                  <span className="text-black/60">{role}</span>
+                  {role && <span className="text-black/60">{role}</span>}
                 </figcaption>
               </figure>
             </li>

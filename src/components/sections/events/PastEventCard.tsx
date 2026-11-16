@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import type { EventListing } from "@/src/lib/data/event-listings";
+import { formatDateRange, formatLocation } from "@/src/lib/utils/event-format";
 
 const chip =
   "rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur-sm";
@@ -11,14 +11,13 @@ type Props = { event: EventListing };
 export default function PastEventCard({ event }: Props) {
   const {
     name,
-    date,
-    location,
+    startDate,
+    endDate,
     image,
     imageAlt,
-    href,
+    websiteUrl,
     description,
-    category,
-    guests,
+    badge,
   } = event;
 
   return (
@@ -35,22 +34,24 @@ export default function PastEventCard({ event }: Props) {
         <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/20" />
       </div>
 
-      {category && (
+      {badge && (
         <span
           className={`${chip} absolute left-6 top-6 sm:left-8 sm:top-8 lg:left-10 lg:top-10`}
         >
-          {category}
+          {badge}
         </span>
       )}
 
       <h3 className="max-w-md text-balance font-heading text-2xl font-medium leading-tight sm:text-4xl">
         {/* The link stretches over the whole card */}
-        <Link
-          href={href}
+        <a
+          href={websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="after:absolute after:inset-0 focus-visible:outline-none"
         >
           {name}
-        </Link>
+        </a>
       </h3>
 
       {description && (
@@ -60,17 +61,18 @@ export default function PastEventCard({ event }: Props) {
       )}
 
       <ul className="mt-6 flex flex-wrap gap-2 pr-16">
-        <li className={chip}>{location}</li>
-        {guests !== undefined && <li className={chip}>{guests} guests</li>}
-        <li className={chip}>{date}</li>
+        <li className={chip}>{formatLocation(event)}</li>
+        <li className={chip}>{formatDateRange(startDate, endDate)}</li>
       </ul>
 
-      <span
+      <a
+        href={websiteUrl}
+        target="_blank"
         aria-hidden
-        className="absolute bottom-6 right-6 grid size-10 place-items-center rounded-full bg-secondary text-white transition-transform group-hover:scale-110 sm:bottom-8 sm:right-8 sm:size-14 lg:bottom-10 lg:right-10 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+        className="absolute cursor-pointer bottom-6 right-6 grid size-10 place-items-center rounded-full bg-secondary text-white transition-transform group-hover:scale-110 sm:bottom-8 sm:right-8 sm:size-14 lg:bottom-10 lg:right-10 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
       >
         <ArrowOutwardIcon fontSize="small" />
-      </span>
+      </a>
 
       {/* Keyboard focus ring for the whole card */}
       <span

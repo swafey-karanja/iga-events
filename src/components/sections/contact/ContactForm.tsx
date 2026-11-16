@@ -1,29 +1,89 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import {
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import Link from "next/link";
 import Alert from "@mui/material/Alert";
+import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormHelperText from "@mui/material/FormHelperText";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
-import SendIcon from "@mui/icons-material/Send";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useSubmit } from "@/src/hooks/useSubmit";
-import { FIELD_SX, SUBMIT_SX } from "@/src/lib/constants/mui";
-import { CONTACT_TOPICS } from "@/src/lib/data/contact";
+import { CHECK_SX, FIELD_SX, SUBMIT_SX } from "@/src/lib/constants/mui";
+import {
+  ATTENDANCE,
+  BUDGETS,
+  EVENT_DURATIONS,
+  EVENT_TYPES,
+  INDUSTRIES,
+  SERVICES,
+} from "@/src/lib/data/contact";
 import { submitContact } from "@/src/lib/services/contact";
 import {
   validateContact,
   type ContactErrors,
+  type ContactField,
   type ContactFormValues,
 } from "@/src/lib/validation/contact";
 
 const INITIAL: ContactFormValues = {
   name: "",
+  organisation: "",
   email: "",
-  topic: "",
+  phone: "",
+  jobTitle: "",
+  eventName: "",
+  eventType: "",
+  industry: "",
+  location: [],
+  attendance: "",
+  eventDate: "",
+  duration: "",
+  services: [],
+  budget: "",
   message: "",
+  consent: false,
   website: "",
 };
+
+const NO_OPTIONS: string[] = [];
+
+type TextKey = Exclude<ContactField, "location" | "services" | "consent">;
+
+const menu = (items: readonly string[], optional = false) => [
+  ...(optional
+    ? [
+        <MenuItem key="none" value="">
+          <em>Not specified</em>
+        </MenuItem>,
+      ]
+    : []),
+  ...items.map((i) => (
+    <MenuItem key={i} value={i}>
+      {i}
+    </MenuItem>
+  )),
+];
+
+function Section({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <fieldset className="grid min-w-0 grid-cols-1 gap-5 border-b border-primary/10 pb-10 last:border-b-0 last:pb-0 sm:grid-cols-2">
+      <legend className="mb-4 w-full text-lg font-semibold tracking-tight text-primary sm:col-span-2 sm:text-xl">
+        {title}
+      </legend>
+      {children}
+    </fieldset>
+  );
+}
 
 export default function ContactForm() {
   const [values, setValues] = useState(INITIAL);
@@ -31,11 +91,21 @@ export default function ContactForm() {
   const { status, error, submit, reset } = useSubmit(submitContact);
   const isSubmitting = status === "submitting";
 
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  const set = (name: string, value: string | string[] | boolean) => {
     setValues((v) => ({ ...v, [name]: value }));
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
+
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    set(e.target.name, e.target.value);
+
+  const toggleService = (service: string) =>
+    set(
+      "services",
+      values.services.includes(service)
+        ? values.services.filter((s) => s !== service)
+        : [...values.services, service],
+    );
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -53,8 +123,8 @@ export default function ContactForm() {
     return (
       <div role="status">
         <Alert severity="success">
-          <strong>Thank you for contacting us!</strong> We’ll get back to you as
-          soon as we can.
+          <strong>Thank you for getting in touch!</strong> We’ve received your
+          enquiry, and our team will be in contact shortly.
         </Alert>
         <Button
           onClick={() => {
@@ -63,7 +133,7 @@ export default function ContactForm() {
           }}
           sx={{ mt: 2, textTransform: "none", color: "#006239" }}
         >
-          Send another message
+          Send another enquiry
         </Button>
       </div>
     );
@@ -76,99 +146,232 @@ export default function ContactForm() {
     onChange,
   } as const;
 
+  const field = (name: TextKey, label: string, required = false) => ({
+    ...common,
+    name,
+    label,
+    required,
+    value: values[name],
+    error: Boolean(errors[name]),
+    helperText: errors[name],
+  });
+
   return (
-    <form onSubmit={onSubmit} noValidate className="grid gap-5">
-      <TextField
-        {...common}
-        name="name"
-        label="Name"
-        autoComplete="name"
-        required
-        value={values.name}
-        error={Boolean(errors.name)}
-        helperText={errors.name}
-      />
-      <TextField
-        {...common}
-        name="email"
-        label="Email address"
-        type="email"
-        autoComplete="email"
-        required
-        value={values.email}
-        error={Boolean(errors.email)}
-        helperText={errors.email}
-      />
-      <TextField
-        {...common}
-        select
-        name="topic"
-        label="Select recipient or topic"
-        required
-        value={values.topic}
-        error={Boolean(errors.topic)}
-        helperText={errors.topic}
-      >
-        {CONTACT_TOPICS.map(({ value, label }) => (
-          <MenuItem key={value} value={value}>
-            {label}
-          </MenuItem>
-        ))}
-      </TextField>
-      <TextField
-        {...common}
-        name="message"
-        label="Message"
-        required
-        multiline
-        minRows={6}
-        value={values.message}
-        error={Boolean(errors.message)}
-        helperText={errors.message ?? `${values.message.length}/2000`}
-      />
+    <section
+      id="contactForm"
+      aria-labelledby="enquiry-heading"
+      className="bg-white px-4 py-16 text-primary sm:px-6"
+    >
+      <div className="mx-auto w-full lg:max-w-9/12">
+        {/* Heading */}
+        <div className="mx-auto mb-12 max-w-7xl text-center">
+          <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+            Let&#39;s work together
+          </span>
 
-      {/* Honeypot: hidden from people and assistive tech */}
-      <div aria-hidden className="absolute -left-[9999px]">
-        <input
-          type="text"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-          value={values.website}
-          onChange={onChange}
-        />
+          <h2
+            id="enquiry-heading"
+            className="text-3xl font-semibold tracking-tight text-primary sm:text-4xl "
+          >
+            Tell us about your event
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-black/60 ">
+            Share your event requirements with us and let our team help you
+            bring your vision to life. Fill in the details below and we&#39;ll
+            get back to you.
+          </p>
+        </div>
+
+        {/* Form container */}
+        <div className="rounded-sm border border-primary/20 bg-white p-5 shadow-sm sm:p-8 md:p-10 lg:p-12">
+          <form
+            onSubmit={onSubmit}
+            noValidate
+            className="grid gap-10 md:gap-12"
+          >
+            <Section title="About Your Event">
+              <TextField
+                {...field("eventName", "Event name")}
+                className="sm:col-span-2"
+              />
+              <TextField {...field("eventType", "Event type", true)} select>
+                {menu(EVENT_TYPES)}
+              </TextField>
+              <TextField
+                {...field("industry", "Industry / Sector", true)}
+                select
+              >
+                {menu(INDUSTRIES)}
+              </TextField>
+              <Autocomplete
+                multiple
+                freeSolo
+                autoSelect
+                options={NO_OPTIONS}
+                value={values.location}
+                onChange={(_, v) => set("location", v)}
+                disabled={isSubmitting}
+                sx={FIELD_SX}
+                className="sm:col-span-2"
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    required
+                    label="Preferred event location(s)"
+                    error={Boolean(errors.location)}
+                    helperText={
+                      errors.location ??
+                      "City, Country (e.g. Nairobi, Kenya). Press Enter to add more than one."
+                    }
+                  />
+                )}
+              />
+              <TextField
+                {...field("attendance", "Expected number of attendees", true)}
+                select
+              >
+                {menu(ATTENDANCE)}
+              </TextField>
+              <TextField
+                {...field("eventDate", "Proposed event date")}
+                type="date"
+                slotProps={{ inputLabel: { shrink: true } }}
+              />
+              <TextField {...field("duration", "Event duration")} select>
+                {menu(EVENT_DURATIONS, true)}
+              </TextField>
+            </Section>
+
+            <Section title="How Can We Help?">
+              <div className="grid grid-cols-1 gap-x-6 gap-y-2 sm:col-span-2 sm:grid-cols-2">
+                {SERVICES.map((service) => (
+                  <FormControlLabel
+                    key={service}
+                    label={service}
+                    control={
+                      <Checkbox
+                        sx={CHECK_SX}
+                        checked={values.services.includes(service)}
+                        onChange={() => toggleService(service)}
+                        disabled={isSubmitting}
+                      />
+                    }
+                  />
+                ))}
+              </div>
+              <TextField
+                {...field("budget", "Estimated budget")}
+                select
+                className="sm:col-span-2"
+              >
+                {menu(BUDGETS, true)}
+              </TextField>
+              <TextField
+                {...field("message", "Tell us more about your event")}
+                className="sm:col-span-2"
+                multiline
+                minRows={6}
+                placeholder="Share a little more about your event, what you hope to achieve and any specific requirements."
+                helperText={errors.message ?? `${values.message.length}/2000`}
+              />
+            </Section>
+
+            <Section title="Your Details">
+              <TextField
+                {...field("name", "Full name", true)}
+                autoComplete="name"
+              />
+              <TextField
+                {...field("organisation", "Organisation / Company", true)}
+                autoComplete="organization"
+              />
+              <TextField
+                {...field("email", "Email address", true)}
+                type="email"
+                autoComplete="email"
+              />
+              <TextField
+                {...field("phone", "Phone number", true)}
+                type="tel"
+                autoComplete="tel"
+                helperText={
+                  errors.phone ?? "Include country code, e.g. +254 700 000000"
+                }
+              />
+              <TextField
+                {...field("jobTitle", "Job title")}
+                autoComplete="organization-title"
+                className="sm:col-span-2"
+              />
+            </Section>
+
+            {/* Honeypot: hidden from people and assistive tech */}
+            <div aria-hidden className="absolute left-[-9999px]">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={values.website}
+                onChange={onChange}
+              />
+            </div>
+
+            <div className="grid gap-5 border-t border-primary/10 pt-6">
+              <FormControl error={Boolean(errors.consent)}>
+                <FormControlLabel
+                  label="I agree to be contacted by IGA Events regarding my enquiry."
+                  control={
+                    <Checkbox
+                      sx={CHECK_SX}
+                      checked={values.consent}
+                      onChange={(e) => set("consent", e.target.checked)}
+                      disabled={isSubmitting}
+                    />
+                  }
+                />
+                {errors.consent && (
+                  <FormHelperText>{errors.consent}</FormHelperText>
+                )}
+              </FormControl>
+
+              <p className="text-xs leading-relaxed text-black/60">
+                By submitting this form you agree to our{" "}
+                {/* TODO: point to the real legal pages */}
+                <Link
+                  href="/terms"
+                  className="underline underline-offset-2 hover:no-underline"
+                >
+                  Terms
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/privacy"
+                  className="underline underline-offset-2 hover:no-underline"
+                >
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+
+              {status === "error" && error && (
+                <Alert severity="error">{error}</Alert>
+              )}
+
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={isSubmitting}
+                endIcon={<ArrowForwardIcon />}
+                sx={SUBMIT_SX}
+              >
+                {isSubmitting ? "Sending…" : "Submit Event Enquiry"}
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <p className="text-xs leading-relaxed text-black/60">
-        By submitting this form you agree to our{" "}
-        {/* TODO: point to the real legal pages */}
-        <Link
-          href="/terms"
-          className="underline underline-offset-2 hover:no-underline"
-        >
-          Terms
-        </Link>{" "}
-        and{" "}
-        <Link
-          href="/privacy"
-          className="underline underline-offset-2 hover:no-underline"
-        >
-          Privacy Policy
-        </Link>
-        .
-      </p>
-
-      {status === "error" && error && <Alert severity="error">{error}</Alert>}
-
-      <Button
-        type="submit"
-        variant="contained"
-        disabled={isSubmitting}
-        endIcon={<SendIcon />}
-        sx={SUBMIT_SX}
-      >
-        {isSubmitting ? "Sending…" : "Send message"}
-      </Button>
-    </form>
+    </section>
   );
 }

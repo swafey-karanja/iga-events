@@ -1,6 +1,6 @@
 import Image from "next/image";
 import HeroCarousel from "@/src/components/sections/hero/HeroCarousel";
-import { getHeroEvents } from "@/src/lib/data/events";
+import { getHeroEvents } from "@/src/lib/data/event-listings";
 
 // PLACEHOLDERS: replace with real assets
 const HERO_VIDEO_SRC =

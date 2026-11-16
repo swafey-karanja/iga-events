@@ -9,12 +9,18 @@ import EventsSubmenu from "@/src/components/layout/EventsSubmenu";
 import ArrowLink from "@/src/components/ui/ArrowLink";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+import type { EventCategory } from "@/src/lib/constants/navigation";
+import Image from "next/image";
 
 const linkBase =
   "rounded-full px-5 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-[#109F5D]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 const activeStyle = "bg-[#109F5D]/60";
 
-export default function Navbar() {
+export default function Navbar({
+  eventLinks,
+}: {
+  eventLinks: readonly EventCategory[];
+}) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [eventsOpen, setEventsOpen] = useState(false);
@@ -55,11 +61,16 @@ export default function Navbar() {
       />
       <div className="mx-auto flex w-full max-w-10/12 items-center justify-between py-5">
         {/* Logo placeholder – replace with your logo */}
-        <Link
-          href="/"
-          className="font-heading text-xl font-semibold text-white"
-        >
-          LOGO
+        {/* Logo placeholder – replace /images/logo.svg with your logo file */}
+        <Link href="/" aria-label="Company name – Home" className="shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Company name"
+            width={140}
+            height={48}
+            priority
+            className="h-10 w-auto xl:h-14"
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -92,9 +103,12 @@ export default function Navbar() {
                   {eventsOpen && (
                     <div
                       id="events-menu"
-                      className="absolute left-0 top-full min-w-64 rounded-2xl bg-black/50 p-2 backdrop-blur-xl"
+                      className="absolute left-0 top-full min-w-75 rounded-2xl bg-black/50 p-2 backdrop-blur-xl"
                     >
-                      <EventsSubmenu onNavigate={closeAll} />
+                      <EventsSubmenu
+                        categories={eventLinks}
+                        onNavigate={closeAll}
+                      />
                     </div>
                   )}
                 </li>
@@ -114,7 +128,7 @@ export default function Navbar() {
         </nav>
 
         <ArrowLink
-          href="#contact"
+          href="/contact#contactForm"
           variant="secondary"
           className="hidden xl:inline-flex"
         >
@@ -144,7 +158,10 @@ export default function Navbar() {
                     {label}
                   </span>
                   <div className="ml-4">
-                    <EventsSubmenu onNavigate={closeAll} />
+                    <EventsSubmenu
+                      categories={eventLinks}
+                      onNavigate={closeAll}
+                    />
                   </div>
                 </li>
               ) : (

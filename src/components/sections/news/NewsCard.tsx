@@ -51,20 +51,25 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
           )}
         </p>
 
-        <h3 className="mt-4 text-balance break-words font-heading text-lg font-semibold leading-snug text-black sm:text-xl">
-          <Link
+        <h3 className="mt-4 text-balance break-words font-heading text-lg font-semibold leading-snug text-black sm:text-lg">
+          <a
             href={href}
+            target="_blank"
             className="after:absolute after:inset-0 focus-visible:outline-none"
           >
             {title}
-          </Link>
+          </a>
         </h3>
 
         <span aria-hidden className="mt-5 h-0.5 w-10 bg-primary" />
 
-        <p className="mt-5 text-sm leading-relaxed text-black/70">{excerpt}</p>
+        <p className="mt-5 text-[13px] leading-relaxed text-black/70 text-start">
+          {excerpt}
+        </p>
 
-        <span
+        <a
+          href={href}
+          target="_blank"
           aria-hidden
           className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-semibold text-primary"
         >
@@ -73,7 +78,7 @@ export default function NewsCard({ article }: { article: NewsArticle }) {
             fontSize="inherit"
             className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:transition-none"
           />
-        </span>
+        </a>
       </div>
     </article>
   );

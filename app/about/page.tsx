@@ -27,7 +27,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutIntro />
       <AboutPillars />
-      <AboutFacts />
+      {/*<AboutFacts />*/}
       <AboutTestimonials />
       <AboutGallery />
       <AboutCta />
