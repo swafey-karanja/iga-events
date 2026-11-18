@@ -13,8 +13,8 @@ import type { EventCategory } from "@/src/lib/constants/navigation";
 import Image from "next/image";
 
 const linkBase =
-  "rounded-full px-5 py-2 text-[15px] font-semibold text-white transition-colors hover:bg-[#109F5D]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
-const activeStyle = "bg-[#109F5D]/60";
+  "rounded-full px-5 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+const activeStyle = "bg-primary/70";
 
 export default function Navbar({
   eventLinks,
@@ -54,10 +54,10 @@ export default function Navbar({
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 isolate text-white">
+    <header className="sticky inset-x-0 top-0 z-50 isolate text-white">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 border-b border-white/10 bg-black/50 backdrop-blur-xl"
+        className="absolute inset-0 -z-10 border-b border-white bg-cream/60 backdrop-blur-xl"
       />
       <div className="mx-auto flex w-full max-w-10/12 items-center justify-between py-5">
         {/* Logo placeholder – replace with your logo */}
@@ -75,7 +75,7 @@ export default function Navbar({
 
         {/* Desktop nav */}
         <nav aria-label="Main" className="hidden xl:block">
-          <ul className="flex items-center gap-1 rounded-full bg-white/10 py-3 px-4">
+          <ul className="flex items-center gap-1 rounded-full bg-secondary/80 py-3 px-4">
             {NAV_LINKS.map(({ label, href }) =>
               label === "Events" ? (
                 <li
@@ -103,7 +103,7 @@ export default function Navbar({
                   {eventsOpen && (
                     <div
                       id="events-menu"
-                      className="absolute left-0 top-full min-w-75 rounded-2xl bg-black/50 p-2 backdrop-blur-xl"
+                      className="absolute left-0 top-full min-w-75 rounded-2xl bg-secondary/80 p-2 backdrop-blur-xl"
                     >
                       <EventsSubmenu
                         categories={eventLinks}

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { validateContact } from "@/src/lib/validation/contact";
+import { getWriteClient } from "@/src/lib/sanity/writeClient";
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -37,15 +38,26 @@ export async function POST(request: Request) {
   }
 
   // TODO: send result.data to your email service or CRM, using server-only
-  // env vars, and route by result.data.topic. Until then messages are
-  // accepted and discarded.
+  try {
+    await getWriteClient().create({
+      _type: "contactEnquiry",
+      // Skip empty optional fields so Sanity doesn't store blank strings
+      ...Object.fromEntries(
+        Object.entries(result.data).filter(([, v]) => v !== ""),
+      ),
+      status: "new",
+      receivedAt: new Date().toISOString(),
+    });
+  } catch {
+    // Deliberately not logging the error, as it could include personal data
+    return NextResponse.json(
+      {
+        ok: false,
+        message: "We couldn't send your enquiry. Please try again.",
+      },
+      { status: 502 },
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }
-
-
-
-
-
-
-

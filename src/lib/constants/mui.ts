@@ -15,8 +15,8 @@ export const SUBMIT_SX = {
   textTransform: "none",
   fontFamily: "inherit",
   fontWeight: 600,
-  bgcolor: "#109f5d",
-  "&:hover": { bgcolor: "#0e8a50" },
+  bgcolor: "#15506F",
+  "&:hover": { bgcolor: "#15506F/90" },
 } as const;
 
 export const CHECK_SX = {

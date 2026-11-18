@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const eventLinks = await getEventNavLinks();
   return (
     <html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
-      <body className="bg-cream text-black antialiased">
+      <body className=" text-black antialiased">
         <SmoothScroll />
         <Navbar eventLinks={eventLinks} />
         <SocialSidebar />

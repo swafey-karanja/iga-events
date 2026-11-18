@@ -21,9 +21,7 @@ export default function AboutHero() {
         className="absolute inset-0 -z-10 bg-linear-to-b from-black/70 via-primary/70 to-primary/90"
       />
 
-      <div
-        className={`${CONTENT} pb-14 pt-28 sm:pb-20 sm:pt-36 xl:pb-24 xl:pt-48 backdrop-blur-xs`}
-      >
+      <div className={`${CONTENT} py-14 sm:py-24 backdrop-blur-xs`}>
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
           <span aria-hidden className="size-1.5 bg-secondary" />
           About us

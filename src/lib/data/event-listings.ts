@@ -12,6 +12,7 @@ export type EventListing = {
   tagline?: string;
   description?: string;
   image: string;
+  logo: string;
   imageAlt: string;
   startDate: string;
   endDate?: string;
@@ -28,6 +29,7 @@ const EVENTS_QUERY = `*[_type == "event" && defined(image) && defined(startDate)
   "id": _id,
   name, badge, title, tagline, description,
   image,
+  logo,
   "imageAlt": coalesce(imageAlt, name),
   startDate, endDate, venue, city, country, websiteUrl, featured, status
 }`;
@@ -53,6 +55,7 @@ export async function getEventListings(): Promise<EventListing[]> {
   // console.log({ types, total, sample });
   // console.log({ raw });
   const events = raw.map(dropNulls);
+  console.log({ events });
 
   // Upcoming soonest first, past most recent first
   return [
