@@ -22,7 +22,7 @@ export default function Footer() {
               className="h-10 w-auto xl:h-16"
             />
           </Link>
-          <p className="mt-8 max-w-120 md:max-w-56 text-lg leading-snug">
+          <p className="mt-8 max-w-120 md:max-w-2xl text-lg leading-snug">
             {SITE.tagline}
           </p>
           {/*<a*/}

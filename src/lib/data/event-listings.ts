@@ -55,7 +55,7 @@ export async function getEventListings(): Promise<EventListing[]> {
   // console.log({ types, total, sample });
   // console.log({ raw });
   const events = raw.map(dropNulls);
-  console.log({ events });
+  // console.log({ events });
 
   // Upcoming soonest first, past most recent first
   return [

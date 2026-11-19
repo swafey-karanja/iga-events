@@ -1,20 +1,15 @@
 import Link from "next/link";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { CONTENT } from "@/src/lib/constants/layout";
-import { SOCIAL_LINKS } from "@/src/lib/constants/footer";
 import Image from "next/image";
-
-const SOCIAL_ICONS = {
-  LinkedIn: LinkedInIcon,
-  Instagram: InstagramIcon,
-} as const;
 
 export default function ContactHero() {
   return (
-    <section aria-labelledby="contact-heading" className="text-white">
+    <section
+      aria-labelledby="contact-heading"
+      className="relative isolate overflow-hidden bg-primary text-white"
+    >
       <Image
-        src="https://plus.unsplash.com/premium_photo-1661645672144-de1e08be7473?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        src="https://images.unsplash.com/photo-1768839720467-90cc32edeb26?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
         alt=""
         fill
         priority
