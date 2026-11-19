@@ -84,24 +84,24 @@ export default function HeroCarousel({ events }: { events: EventListing[] }) {
         {/*    <PlayArrowIcon fontSize="small" aria-hidden />*/}
         {/*  )}*/}
         {/*</button>*/}
-        {events.map((event, i) => (
-          <button
-            key={event.id}
-            type="button"
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            aria-current={i === index}
-            className="group px-1 py-4 focus-visible:outline-2 focus-visible:outline-white"
-          >
-            <span
-              className={`block h-1 md:h-2 transition-all duration-300 motion-reduce:transition-none ${
-                i === index
-                  ? "w-24 lg:w-220 bg-secondary"
-                  : "w-12 lg:w-40 bg-white/60 group-hover:bg-white"
-              }`}
-            />
-          </button>
-        ))}
+        {/*{events.map((event, i) => (*/}
+        {/*  <button*/}
+        {/*    key={event.id}*/}
+        {/*    type="button"*/}
+        {/*    onClick={() => goTo(i)}*/}
+        {/*    aria-label={`Go to slide ${i + 1}`}*/}
+        {/*    aria-current={i === index}*/}
+        {/*    className="group px-1 py-4 focus-visible:outline-2 focus-visible:outline-white"*/}
+        {/*  >*/}
+        {/*    <span*/}
+        {/*      className={`block h-1 md:h-2 transition-all duration-300 motion-reduce:transition-none ${*/}
+        {/*        i === index*/}
+        {/*          ? "w-24 lg:w-220 bg-secondary"*/}
+        {/*          : "w-12 lg:w-40 bg-white/60 group-hover:bg-white"*/}
+        {/*      }`}*/}
+        {/*    />*/}
+        {/*  </button>*/}
+        {/*))}*/}
       </div>
     </div>
   );

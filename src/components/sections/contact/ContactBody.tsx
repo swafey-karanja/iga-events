@@ -33,7 +33,7 @@ export default function ContactBody() {
 
         {/* Map - Right */}
         <div>
-          <div className="aspect-[4/3] w-full overflow-hidden rounded-sm bg-[#e8e8e1]">
+          <div className="aspect-[2/1] w-full overflow-hidden rounded-sm bg-[#e8e8e1]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.799644250128!2d36.76993397623802!3d-1.2947572986929274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1bc88a8581b9%3A0xe6a8ed978ecd84ef!2sCatholic%20Nurses%20Association%20Building!5e0!3m2!1sen!2ske!4v1794816103996!5m2!1sen!2ske"
               title="IGA Events office location"

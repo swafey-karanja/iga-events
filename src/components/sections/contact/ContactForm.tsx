@@ -7,7 +7,6 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
-import Alert from "@mui/material/Alert";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -34,6 +33,8 @@ import {
   type ContactField,
   type ContactFormValues,
 } from "@/src/lib/validation/contact";
+import Alert, { type AlertColor } from "@mui/material/Alert";
+import Snackbar, { type SnackbarCloseReason } from "@mui/material/Snackbar";
 
 const INITIAL: ContactFormValues = {
   name: "",
@@ -57,6 +58,9 @@ const INITIAL: ContactFormValues = {
 
 const NO_OPTIONS: string[] = [];
 
+const SUCCESS_MESSAGE =
+  "Thank you for getting in touch! We’ve received your enquiry, and our team will be in contact shortly.";
+
 type TextKey = Exclude<ContactField, "location" | "services" | "consent">;
 
 const menu = (items: readonly string[], optional = false) => [
@@ -74,6 +78,30 @@ const menu = (items: readonly string[], optional = false) => [
   )),
 ];
 
+// Visual order of the fields, so we scroll to the topmost error first
+const FIELD_ORDER: ContactField[] = [
+  "eventName",
+  "eventType",
+  "industry",
+  "location",
+  "attendance",
+  "eventDate",
+  "duration",
+  "budget",
+  "message",
+  "name",
+  "organisation",
+  "email",
+  "phone",
+  "jobTitle",
+  "consent",
+];
+
+const scrollToEl = (el: HTMLElement | null, block: ScrollLogicalPosition) => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  el?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block });
+};
+
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <fieldset className="grid min-w-0 grid-cols-1 gap-5 border-b border-primary/10 pb-10 last:border-b-0 last:pb-0 sm:grid-cols-2">
@@ -88,8 +116,18 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 export default function ContactForm() {
   const [values, setValues] = useState(INITIAL);
   const [errors, setErrors] = useState<ContactErrors>({});
-  const { status, error, submit, reset } = useSubmit(submitContact);
+  const { status, submit } = useSubmit(submitContact);
   const isSubmitting = status === "submitting";
+  const [toast, setToast] = useState<{
+    open: boolean;
+    severity: AlertColor;
+    message: string;
+  }>({ open: false, severity: "success", message: "" });
+
+  const closeToast = (_?: unknown, reason?: SnackbarCloseReason) => {
+    if (reason === "clickaway") return;
+    setToast((t) => ({ ...t, open: false }));
+  };
 
   const set = (name: string, value: string | string[] | boolean) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -113,31 +151,23 @@ export default function ContactForm() {
     const result = validateContact(values);
     if (!result.ok) {
       setErrors(result.errors);
+      const first = FIELD_ORDER.find((f) => result.errors[f]);
+      const el = first ? document.getElementById(`field-${first}`) : null;
+      el?.focus({ preventScroll: true });
+      scrollToEl(el, "center");
       return;
     }
     setErrors({});
-    await submit({ ...result.data, website: values.website });
-  };
 
-  if (status === "success") {
-    return (
-      <div role="status">
-        <Alert severity="success">
-          <strong>Thank you for getting in touch!</strong> We’ve received your
-          enquiry, and our team will be in contact shortly.
-        </Alert>
-        <Button
-          onClick={() => {
-            setValues(INITIAL);
-            reset();
-          }}
-          sx={{ mt: 2, textTransform: "none", color: "#006239" }}
-        >
-          Send another enquiry
-        </Button>
-      </div>
-    );
-  }
+    const error = await submit({ ...result.data, website: values.website });
+    if (error) {
+      setToast({ open: true, severity: "error", message: error });
+      return;
+    }
+    setValues(INITIAL);
+    setToast({ open: true, severity: "success", message: SUCCESS_MESSAGE });
+    scrollToEl(document.getElementById("contactForm"), "start");
+  };
 
   const common = {
     fullWidth: true,
@@ -148,6 +178,7 @@ export default function ContactForm() {
 
   const field = (name: TextKey, label: string, required = false) => ({
     ...common,
+    id: `field-${name}`,
     name,
     label,
     required,
@@ -160,7 +191,7 @@ export default function ContactForm() {
     <section
       id="contactForm"
       aria-labelledby="enquiry-heading"
-      className="bg-white px-4 py-16 text-primary sm:px-6"
+      className="bg-white px-4 py-16 text-primary sm:px-6 scroll-mt-24"
     >
       <div className="mx-auto w-full lg:max-w-9/12">
         {/* Heading */}
@@ -205,6 +236,7 @@ export default function ContactForm() {
                 {menu(INDUSTRIES)}
               </TextField>
               <Autocomplete
+                id="field-location"
                 multiple
                 freeSolo
                 autoSelect
@@ -251,6 +283,7 @@ export default function ContactForm() {
                     label={service}
                     control={
                       <Checkbox
+                        id="field-consent"
                         sx={CHECK_SX}
                         checked={values.services.includes(service)}
                         onChange={() => toggleService(service)}
@@ -355,10 +388,6 @@ export default function ContactForm() {
                 .
               </p>
 
-              {status === "error" && error && (
-                <Alert severity="error">{error}</Alert>
-              )}
-
               <Button
                 type="submit"
                 variant="contained"
@@ -372,6 +401,21 @@ export default function ContactForm() {
           </form>
         </div>
       </div>
+      <Snackbar
+        open={toast.open}
+        autoHideDuration={6000}
+        onClose={closeToast}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          severity={toast.severity}
+          variant="filled"
+          onClose={closeToast}
+          sx={{ width: "100%" }}
+        >
+          {toast.message}
+        </Alert>
+      </Snackbar>
     </section>
   );
 }

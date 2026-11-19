@@ -6,7 +6,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import type { EventCategory } from "@/src/lib/constants/navigation";
 
 const itemBase =
-  "flex w-full items-center justify-between gap-2 rounded-xl px-4 py-2 text-left text-[15px] font-semibold text-white transition-colors hover:bg-[#109F5D]/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "flex w-full items-center justify-between gap-2 rounded-xl px-4 py-2 text-left text-[15px] font-semibold text-white transition-colors hover:bg-primary/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 type Props = {
   categories: readonly EventCategory[];

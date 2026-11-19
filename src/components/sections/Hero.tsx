@@ -2,11 +2,9 @@ import Image from "next/image";
 import HeroCarousel from "@/src/components/sections/hero/HeroCarousel";
 import { getHeroEvents } from "@/src/lib/data/event-listings";
 
-// PLACEHOLDERS: replace with real assets
-const HERO_VIDEO_SRC =
-  "https://res.cloudinary.com/odxuv15g/video/upload/f_auto,q_auto/2026-iga-summit_ndjdc4_p3oq7y.mp4";
-const HERO_POSTER_SRC =
-  "https://res.cloudinary.com/odxuv15g/image/upload/v1793960420/Screenshot_20261106_131942_q3zoo6.png";
+// PLACEHOLDER: replace with real asset
+const HERO_BG_SRC =
+  "https://images.unsplash.com/photo-1669127300649-940337f1487e?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D";
 
 export default async function Hero() {
   const events = await getHeroEvents();
@@ -14,32 +12,28 @@ export default async function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-svh flex-col overflow-hidden bg-primary text-white"
+      className="relative isolate flex min-h-[40svh] flex-col overflow-hidden bg-blue bg-linear-to-r from-primary/80 to-secondary text-white"
     >
-      {/* Poster is the LCP image and the fallback for reduced motion */}
-      <Image
-        src={HERO_POSTER_SRC}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="-z-20 object-cover"
-      />
-      <video
-        className="absolute inset-0 -z-10 size-full object-cover motion-reduce:hidden"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster={HERO_POSTER_SRC}
-        aria-hidden="true"
-      >
-        <source src={HERO_VIDEO_SRC} type="video/mp4" />
-      </video>
+      {/* Image: full width on mobile, 65% of the section from lg up */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-b from-black/60 via-black/80 to-black/70"
+        className="absolute inset-y-0 right-0 -z-20 w-full xl:w-[60%] xl:mask-[linear-gradient(to_right,transparent,black_80%)]"
+      >
+        <Image
+          src={HERO_BG_SRC}
+          alt=""
+          fill
+          priority
+          sizes="(min-width: 1024px) 65vw, 100vw"
+          className="object-cover"
+        />
+        <div aria-hidden className="absolute inset-0 z-10 bg-primary/50" />
+      </div>
+
+      {/* Mobile only: darkens the full-width image so text stays readable */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-black/50 xl:hidden"
       />
 
       <HeroCarousel events={events} />
